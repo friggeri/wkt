@@ -1,0 +1,310 @@
+[
+  {
+    "type": "alert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "heartRateAlert",
+          "named": true
+        },
+        {
+          "type": "paceAlert",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cooldownStep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "workoutStep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "goal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "unitDuration",
+          "named": true
+        },
+        {
+          "type": "unitLength",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "heartRateAlert",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "intervalBlock",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "intervalReps",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "intervalReps",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "intervalStep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "intervalStep",
+    "named": true,
+    "fields": {
+      "purpose": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "recovery",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "workoutStep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "paceAlert",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "paceTime",
+          "named": true
+        },
+        {
+          "type": "unitLength",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unitDuration",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unitLength",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "warmupStep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "workoutStep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workout",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cooldownStep",
+          "named": true
+        },
+        {
+          "type": "intervalBlock",
+          "named": true
+        },
+        {
+          "type": "warmupStep",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workoutStep",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "alert",
+          "named": true
+        },
+        {
+          "type": "goal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "@",
+    "named": false
+  },
+  {
+    "type": "cooldown",
+    "named": false
+  },
+  {
+    "type": "feet",
+    "named": false
+  },
+  {
+    "type": "hr",
+    "named": false
+  },
+  {
+    "type": "kilometer",
+    "named": false
+  },
+  {
+    "type": "meter",
+    "named": false
+  },
+  {
+    "type": "miles",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": true
+  },
+  {
+    "type": "paceTime",
+    "named": true
+  },
+  {
+    "type": "recovery",
+    "named": false
+  },
+  {
+    "type": "run",
+    "named": false
+  },
+  {
+    "type": "sec",
+    "named": false
+  },
+  {
+    "type": "warmup",
+    "named": false
+  },
+  {
+    "type": "x",
+    "named": false
+  },
+  {
+    "type": "yards",
+    "named": false
+  },
+  {
+    "type": "z1",
+    "named": false
+  },
+  {
+    "type": "z2",
+    "named": false
+  },
+  {
+    "type": "z3",
+    "named": false
+  },
+  {
+    "type": "z4",
+    "named": false
+  },
+  {
+    "type": "z5",
+    "named": false
+  }
+]

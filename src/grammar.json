@@ -1,0 +1,448 @@
+{
+  "name": "workoutlang",
+  "rules": {
+    "workout": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "warmupStep"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "intervalBlock"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "cooldownStep"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "warmupStep": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "workoutStep"
+        },
+        {
+          "type": "STRING",
+          "value": "warmup"
+        },
+        {
+          "type": "STRING",
+          "value": "+"
+        }
+      ]
+    },
+    "cooldownStep": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "workoutStep"
+        },
+        {
+          "type": "STRING",
+          "value": "cooldown"
+        }
+      ]
+    },
+    "intervalBlock": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "intervalReps"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "intervalReps"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "STRING",
+              "value": "x"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "intervalReps"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "intervalReps": {
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "intervalStep"
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "+"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "intervalStep"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "intervalStep": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "workoutStep"
+        },
+        {
+          "type": "FIELD",
+          "name": "purpose",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "recovery"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "workoutStep": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "goal"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "@"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "alert"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "alert": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "heartRateAlert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paceAlert"
+        }
+      ]
+    },
+    "heartRateAlert": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "z1"
+        },
+        {
+          "type": "STRING",
+          "value": "z2"
+        },
+        {
+          "type": "STRING",
+          "value": "z3"
+        },
+        {
+          "type": "STRING",
+          "value": "z4"
+        },
+        {
+          "type": "STRING",
+          "value": "z5"
+        }
+      ]
+    },
+    "paceAlert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "paceTime"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unitLength"
+        }
+      ]
+    },
+    "paceTime": {
+      "type": "PATTERN",
+      "value": "\\d+:\\d\\d"
+    },
+    "goal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "run"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "unitLength"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "unitDuration"
+            }
+          ]
+        }
+      ]
+    },
+    "unitLength": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "mile"
+              },
+              {
+                "type": "STRING",
+                "value": "miles"
+              },
+              {
+                "type": "STRING",
+                "value": "mi"
+              }
+            ]
+          },
+          "named": false,
+          "value": "miles"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "yard"
+              },
+              {
+                "type": "STRING",
+                "value": "yards"
+              },
+              {
+                "type": "STRING",
+                "value": "yd"
+              }
+            ]
+          },
+          "named": false,
+          "value": "yards"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "foot"
+              },
+              {
+                "type": "STRING",
+                "value": "feet"
+              },
+              {
+                "type": "STRING",
+                "value": "ft"
+              }
+            ]
+          },
+          "named": false,
+          "value": "feet"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "meter"
+              },
+              {
+                "type": "STRING",
+                "value": "meters"
+              },
+              {
+                "type": "STRING",
+                "value": "m"
+              }
+            ]
+          },
+          "named": false,
+          "value": "meter"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "kilometer"
+              },
+              {
+                "type": "STRING",
+                "value": "kilometers"
+              },
+              {
+                "type": "STRING",
+                "value": "km"
+              }
+            ]
+          },
+          "named": false,
+          "value": "kilometer"
+        }
+      ]
+    },
+    "unitDuration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sec"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "STRING",
+          "value": "hr"
+        }
+      ]
+    },
+    "number": {
+      "type": "PATTERN",
+      "value": "\\d+(\\.\\d+)?"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}

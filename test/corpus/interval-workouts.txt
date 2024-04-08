@@ -1,0 +1,126 @@
+===
+Interval
+===
+5x(0.25 miles + 0.75 miles recovery)
+---
+(workout
+  (intervalBlock
+    (number)
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))))
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+                (unitLength)))))))
+===
+Interval with pace
+===
+5x(0.25 miles @ 6:30/mi + 0.75 miles @ 9:00/mi)
+---
+(workout
+  (intervalBlock
+    (number)
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))
+          (alert
+            (paceAlert
+              (paceTime)
+              (unitLength)))))
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))
+          (alert
+            (paceAlert
+              (paceTime)
+              (unitLength))))))))
+===
+Interval with heart rate zone
+===
+5x(0.25 miles @ z5 + 0.75 miles recovery)
+---
+(workout
+  (intervalBlock
+    (number)
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))
+          (alert
+            (heartRateAlert))))
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength)))))))
+===
+One step with warmup
+===
+1 mile warmup + 5 miles
+---
+(workout
+  (warmupStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength))))
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength)))))))
+===
+One step with cooldown
+===
+5 miles + 1 mile cooldown
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))))))
+  (cooldownStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength)))))
+===
+One step with warmup and cooldown
+===
+1 mile warmup + 5 miles  + 2 miles cooldown
+---
+(workout
+  (warmupStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength))))
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))))))
+  (cooldownStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength)))))

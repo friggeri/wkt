@@ -1,0 +1,45 @@
+{
+  "name": "workout-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "grammar.js",
+  "types": "bindings/node",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.2",
+    "prebuildify": "^6.0.0"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.wk"
+    }
+  ]
+}

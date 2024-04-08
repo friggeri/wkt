@@ -1,0 +1,117 @@
+===
+One step 
+===
+5 miles
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength)))))))
+===
+One step with pace
+===
+1 mile @ 6:30/mi
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))
+          (alert
+            (paceAlert
+              (paceTime)
+              (unitLength))))))))
+===
+One step with heart rate zone
+===
+2 miles @ z4
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))
+          (alert
+            (heartRateAlert)))))))
+===
+One step with recovery
+===
+5 miles recovery
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength)))))))
+===
+One step with warmup
+===
+1 mile warmup + 5 miles
+---
+(workout
+  (warmupStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength))))
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength)))))))
+===
+One step with cooldown
+===
+5 miles + 1 mile cooldown
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))))))
+  (cooldownStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength)))))
+===
+One step with warmup and cooldown
+===
+1 mile warmup + 5 miles  + 2 miles cooldown
+---
+(workout
+  (warmupStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength))))
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (goal
+            (number)
+            (unitLength))))))
+  (cooldownStep
+    (workoutStep
+      (goal
+        (number)
+        (unitLength)))))
