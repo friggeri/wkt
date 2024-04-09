@@ -1,6 +1,6 @@
 {
   "name": "@adrien/wkt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tree Sitter grammar to describe running workouts",
   "repository": {
     "type": "git",
@@ -48,7 +48,9 @@
   "tree-sitter": [
     {
       "scope": "source.wkt",
-      "file-types": ["wkt"]
+      "file-types": [
+        "wkt"
+      ]
     }
   ]
 }
