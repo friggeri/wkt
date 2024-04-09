@@ -2,9 +2,9 @@
 (pace) @number
 
 [
-  (sec)
-  (min)
-  (hr)
+  (seconds)
+  (minutes)
+  (hours)
   (miles)
   (yards)
   (feet)

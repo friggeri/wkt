@@ -2,14 +2,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "TreeSitterWorkoutlang",
+    name: "TreeSitterwkt",
     platforms: [.macOS(.v10_13), .iOS(.v11)],
     products: [
-        .library(name: "TreeSitterWorkoutlang", targets: ["TreeSitterWorkoutlang"]),
+        .library(name: "TreeSitterwkt", targets: ["TreeSitterwkt"]),
     ],
     dependencies: [],
     targets: [
-        .target(name: "TreeSitterWorkoutlang",
+        .target(name: "TreeSitterwkt",
                 path: ".",
                 exclude: [
                     "Cargo.toml",

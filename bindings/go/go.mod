@@ -1,4 +1,4 @@
-module github.com/tree-sitter/tree-sitter-workoutlang
+module github.com/tree-sitter/tree-sitter-wkt
 
 go 1.22
 

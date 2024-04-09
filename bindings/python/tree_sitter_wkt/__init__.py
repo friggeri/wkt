@@ -1,4 +1,4 @@
-"Workoutlang grammar for tree-sitter"
+"Wkt grammar for tree-sitter"
 
 from ._binding import language
 

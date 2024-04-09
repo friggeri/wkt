@@ -1,15 +1,15 @@
-package tree_sitter_workoutlang_test
+package tree_sitter_wkt_test
 
 import (
 	"testing"
 
 	tree_sitter "github.com/smacker/go-tree-sitter"
-	"github.com/tree-sitter/tree-sitter-workoutlang"
+	"github.com/tree-sitter/tree-sitter-wkt"
 )
 
 func TestCanLoadGrammar(t *testing.T) {
-	language := tree_sitter.NewLanguage(tree_sitter_workoutlang.Language())
+	language := tree_sitter.NewLanguage(tree_sitter_wkt.Language())
 	if language == nil {
-		t.Errorf("Error loading Workoutlang grammar")
+		t.Errorf("Error loading wkt grammar")
 	}
 }

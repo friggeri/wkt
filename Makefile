@@ -1,6 +1,6 @@
 VERSION := 0.0.1
 
-LANGUAGE_NAME := tree-sitter-workoutlang
+LANGUAGE_NAME := tree-sitter-wkt
 
 # repository
 SRC_DIR := src
