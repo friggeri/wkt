@@ -1,5 +1,5 @@
 module.exports = grammar({
-  name: 'workoutlang',
+  name: 'wkt',
   rules: {
     workout: $ => seq(
       optional($.warmupStep),
