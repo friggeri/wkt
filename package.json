@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/friggeri/wkt.git"
   },
-  "main": "grammar.js",
+  "main": "bindings/node",
   "types": "bindings/node",
   "directories": {
     "test": "test"
