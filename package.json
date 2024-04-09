@@ -1,11 +1,18 @@
 {
-  "name": "wkt",
-  "version": "1.0.0",
+  "name": "@adrien/wkt",
+  "version": "1.0.1",
   "description": "Tree Sitter grammar to describe running workouts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/friggeri/wkt.git"
+  },
   "main": "grammar.js",
   "types": "bindings/node",
   "directories": {
     "test": "test"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "tree-sitter test",
@@ -35,7 +42,8 @@
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**"
+    "src/**",
+    "Readme.md"
   ],
   "tree-sitter": [
     {
