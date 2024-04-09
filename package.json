@@ -1,6 +1,6 @@
 {
   "name": "@adrien/wkt",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Tree Sitter grammar to describe running workouts",
   "repository": {
     "type": "git",
