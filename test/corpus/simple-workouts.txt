@@ -8,9 +8,9 @@ One step
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength)))))))
+            (miles)))))))
 ===
 One step with pace
 ===
@@ -21,13 +21,35 @@ One step with pace
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
-            (number)
-            (unitLength))
+          (distanceGoal
+            value: (number)
+            unit: (miles))
           (alert
-            (paceAlert
-              (paceTime)
-              (unitLength))))))))
+            (paceThresholdAlert
+              (pace
+                duration: (paceTime)
+                unit: (miles)))))))))
+===
+One step with pace range
+===
+1 mile @ 6:30/mi - 7:30/mi
+---
+(workout
+  (intervalBlock
+    (intervalReps
+      (intervalStep
+        (workoutStep
+          (distanceGoal
+            value: (number)
+            unit: (miles))
+          (alert
+            (paceRangeAlert
+              lower: (pace
+                duration: (paceTime)
+                unit: (miles))
+              upper: (pace
+                duration: (paceTime)
+                unit: (miles)))))))))
 ===
 One step with heart rate zone
 ===
@@ -38,11 +60,12 @@ One step with heart rate zone
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength))
+            (miles))
           (alert
-            (heartRateAlert)))))))
+            (heartRateAlert
+              (z4))))))))
 ===
 One step with recovery
 ===
@@ -53,9 +76,9 @@ One step with recovery
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength)))))))
+            (miles)))))))
 ===
 One step with warmup
 ===
@@ -64,16 +87,16 @@ One step with warmup
 (workout
   (warmupStep
     (workoutStep
-      (goal
+      (distanceGoal
         (number)
-        (unitLength))))
+        (miles))))
   (intervalBlock
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength)))))))
+            (miles)))))))
 ===
 One step with cooldown
 ===
@@ -84,14 +107,14 @@ One step with cooldown
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength))))))
+            (miles))))))
   (cooldownStep
     (workoutStep
-      (goal
+      (distanceGoal
         (number)
-        (unitLength)))))
+        (miles)))))
 ===
 One step with warmup and cooldown
 ===
@@ -100,18 +123,18 @@ One step with warmup and cooldown
 (workout
   (warmupStep
     (workoutStep
-      (goal
+      (distanceGoal
         (number)
-        (unitLength))))
+        (miles))))
   (intervalBlock
     (intervalReps
       (intervalStep
         (workoutStep
-          (goal
+          (distanceGoal
             (number)
-            (unitLength))))))
+            (miles))))))
   (cooldownStep
     (workoutStep
-      (goal
+      (distanceGoal
         (number)
-        (unitLength)))))
+        (miles)))))

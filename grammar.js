@@ -38,50 +38,79 @@ module.exports = grammar({
     ),
 
     workoutStep: $ => seq(
-      $.goal,
+      $._goal,
       optional(seq('@', $.alert))
     ),
 
     alert: $ => choice(
       $.heartRateAlert,
-      $.paceAlert,
+      $.paceThresholdAlert,
+      $.paceRangeAlert,
     ),
 
     heartRateAlert: $ => choice(
-      'z1',
-      'z2',
-      'z3',
-      'z4',
-      'z5',
+      $.z1,
+      $.z2,
+      $.z3,
+      $.z4,
+      $.z5,
     ),
 
-    paceAlert: $ => seq(
-      $.paceTime,
+    z1: $ => 'z1',
+    z2: $ => 'z2',
+    z3: $ => 'z3',
+    z4: $ => 'z4',
+    z5: $ => 'z5',
+
+    pace: $ => seq(
+      field("duration", $.paceTime),
       '/',
-      $.unitLength
+      field("unit", $._unitLength),
+    ),
+
+    paceThresholdAlert: $ => $.pace,
+
+    paceRangeAlert: $ => seq(
+      field("lower", $.pace),
+      '-',
+      field("upper", $.pace),
     ),
 
     paceTime: $ => /\d+:\d\d/,
 
-    goal: $ => choice(
-      'run',
-      seq($.number, $.unitLength),
-      seq($.number, $.unitDuration)
+    _goal: $ => choice(
+      $.openGoal,
+      $.distanceGoal,
+      $.durationGoal,
     ),
 
-    unitLength: $ => choice(
-      alias(choice('mile', 'miles', 'mi'), 'miles'),
-      alias(choice('yard', 'yards', 'yd'), 'yards'),
-      alias(choice('foot', 'feet', 'ft'), 'feet'),
-      alias(choice('meter', 'meters', 'm'), 'meter'),
-      alias(choice('kilometer', 'kilometers', 'km'), 'kilometer'),
+    openGoal: $ => choice('open', 'run'),
+    distanceGoal: $ => seq(field('value', $.number), field('unit', $._unitLength)),
+    durationGoal: $ => seq(field('value', $.number), field('unit', $._unitDuration)),
+
+    _unitLength: $ => choice(
+      $.miles,
+      $.yards,
+      $.feet,
+      $.meter,
+      $.kilometer,
     ),
 
-    unitDuration: $ => choice(
-      'sec',
-      'min',
-      'hr'
+    miles: $ => choice('mile', 'miles', 'mi'),
+    yards: $ => choice('yard', 'yards', 'yd'),
+    feet: $ => choice('foot', 'feet', 'ft'),
+    meter: $ => choice('meter', 'meters', 'm'),
+    kilometer: $ => choice('kilometer', 'kilometers', 'km'),
+
+    _unitDuration: $ => choice(
+      $.seconds,
+      $.minutes,
+      $.hours,
     ),
+
+    seconds: $ => 'sec',
+    minutes: $ => 'min',
+    hours: $ => 'hr',
 
     number: $ => /\d+(\.\d+)?/,
   }

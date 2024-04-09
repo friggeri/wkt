@@ -178,7 +178,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "goal"
+          "name": "_goal"
         },
         {
           "type": "CHOICE",
@@ -212,7 +212,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "paceAlert"
+          "name": "paceThresholdAlert"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paceRangeAlert"
         }
       ]
     },
@@ -220,41 +224,98 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "z1"
+          "type": "SYMBOL",
+          "name": "z1"
         },
         {
-          "type": "STRING",
-          "value": "z2"
+          "type": "SYMBOL",
+          "name": "z2"
         },
         {
-          "type": "STRING",
-          "value": "z3"
+          "type": "SYMBOL",
+          "name": "z3"
         },
         {
-          "type": "STRING",
-          "value": "z4"
+          "type": "SYMBOL",
+          "name": "z4"
         },
         {
-          "type": "STRING",
-          "value": "z5"
+          "type": "SYMBOL",
+          "name": "z5"
         }
       ]
     },
-    "paceAlert": {
+    "z1": {
+      "type": "STRING",
+      "value": "z1"
+    },
+    "z2": {
+      "type": "STRING",
+      "value": "z2"
+    },
+    "z3": {
+      "type": "STRING",
+      "value": "z3"
+    },
+    "z4": {
+      "type": "STRING",
+      "value": "z4"
+    },
+    "z5": {
+      "type": "STRING",
+      "value": "z5"
+    },
+    "pace": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "paceTime"
+          "type": "FIELD",
+          "name": "duration",
+          "content": {
+            "type": "SYMBOL",
+            "name": "paceTime"
+          }
         },
         {
           "type": "STRING",
           "value": "/"
         },
         {
-          "type": "SYMBOL",
-          "name": "unitLength"
+          "type": "FIELD",
+          "name": "unit",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_unitLength"
+          }
+        }
+      ]
+    },
+    "paceThresholdAlert": {
+      "type": "SYMBOL",
+      "name": "pace"
+    },
+    "paceRangeAlert": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "lower",
+          "content": {
+            "type": "SYMBOL",
+            "name": "pace"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "FIELD",
+          "name": "upper",
+          "content": {
+            "type": "SYMBOL",
+            "name": "pace"
+          }
         }
       ]
     },
@@ -262,172 +323,216 @@
       "type": "PATTERN",
       "value": "\\d+:\\d\\d"
     },
-    "goal": {
+    "_goal": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "openGoal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "distanceGoal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "durationGoal"
+        }
+      ]
+    },
+    "openGoal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "open"
+        },
         {
           "type": "STRING",
           "value": "run"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "number"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "unitLength"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "number"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "unitDuration"
-            }
-          ]
         }
       ]
     },
-    "unitLength": {
+    "distanceGoal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "unit",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_unitLength"
+          }
+        }
+      ]
+    },
+    "durationGoal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "number"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "unit",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_unitDuration"
+          }
+        }
+      ]
+    },
+    "_unitLength": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "mile"
-              },
-              {
-                "type": "STRING",
-                "value": "miles"
-              },
-              {
-                "type": "STRING",
-                "value": "mi"
-              }
-            ]
-          },
-          "named": false,
+          "type": "SYMBOL",
+          "name": "miles"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "yards"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "feet"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "meter"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "kilometer"
+        }
+      ]
+    },
+    "miles": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "mile"
+        },
+        {
+          "type": "STRING",
           "value": "miles"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "yard"
-              },
-              {
-                "type": "STRING",
-                "value": "yards"
-              },
-              {
-                "type": "STRING",
-                "value": "yd"
-              }
-            ]
-          },
-          "named": false,
-          "value": "yards"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "foot"
-              },
-              {
-                "type": "STRING",
-                "value": "feet"
-              },
-              {
-                "type": "STRING",
-                "value": "ft"
-              }
-            ]
-          },
-          "named": false,
-          "value": "feet"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "meter"
-              },
-              {
-                "type": "STRING",
-                "value": "meters"
-              },
-              {
-                "type": "STRING",
-                "value": "m"
-              }
-            ]
-          },
-          "named": false,
-          "value": "meter"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "kilometer"
-              },
-              {
-                "type": "STRING",
-                "value": "kilometers"
-              },
-              {
-                "type": "STRING",
-                "value": "km"
-              }
-            ]
-          },
-          "named": false,
-          "value": "kilometer"
+          "type": "STRING",
+          "value": "mi"
         }
       ]
     },
-    "unitDuration": {
+    "yards": {
       "type": "CHOICE",
       "members": [
         {
           "type": "STRING",
-          "value": "sec"
+          "value": "yard"
         },
         {
           "type": "STRING",
-          "value": "min"
+          "value": "yards"
         },
         {
           "type": "STRING",
-          "value": "hr"
+          "value": "yd"
         }
       ]
+    },
+    "feet": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "foot"
+        },
+        {
+          "type": "STRING",
+          "value": "feet"
+        },
+        {
+          "type": "STRING",
+          "value": "ft"
+        }
+      ]
+    },
+    "meter": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "meter"
+        },
+        {
+          "type": "STRING",
+          "value": "meters"
+        },
+        {
+          "type": "STRING",
+          "value": "m"
+        }
+      ]
+    },
+    "kilometer": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "kilometer"
+        },
+        {
+          "type": "STRING",
+          "value": "kilometers"
+        },
+        {
+          "type": "STRING",
+          "value": "km"
+        }
+      ]
+    },
+    "_unitDuration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "seconds"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "minutes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hours"
+        }
+      ]
+    },
+    "seconds": {
+      "type": "STRING",
+      "value": "sec"
+    },
+    "minutes": {
+      "type": "STRING",
+      "value": "min"
+    },
+    "hours": {
+      "type": "STRING",
+      "value": "hr"
     },
     "number": {
       "type": "PATTERN",

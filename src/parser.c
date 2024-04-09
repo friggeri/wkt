@@ -5,15 +5,15 @@
 #endif
 
 #define LANGUAGE_VERSION 14
-#define STATE_COUNT 45
+#define STATE_COUNT 52
 #define LARGE_STATE_COUNT 2
-#define SYMBOL_COUNT 50
+#define SYMBOL_COUNT 62
 #define ALIAS_COUNT 0
-#define TOKEN_COUNT 36
+#define TOKEN_COUNT 38
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 1
+#define FIELD_COUNT 6
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
-#define PRODUCTION_ID_COUNT 2
+#define PRODUCTION_ID_COUNT 5
 
 enum ts_symbol_identifiers {
   anon_sym_warmup = 1,
@@ -24,47 +24,59 @@ enum ts_symbol_identifiers {
   anon_sym_x = 6,
   anon_sym_recovery = 7,
   anon_sym_AT = 8,
-  anon_sym_z1 = 9,
-  anon_sym_z2 = 10,
-  anon_sym_z3 = 11,
-  anon_sym_z4 = 12,
-  anon_sym_z5 = 13,
+  sym_z1 = 9,
+  sym_z2 = 10,
+  sym_z3 = 11,
+  sym_z4 = 12,
+  sym_z5 = 13,
   anon_sym_SLASH = 14,
-  sym_paceTime = 15,
-  anon_sym_run = 16,
-  anon_sym_mile = 17,
-  anon_sym_miles = 18,
-  anon_sym_mi = 19,
-  anon_sym_yard = 20,
-  anon_sym_yards = 21,
-  anon_sym_yd = 22,
-  anon_sym_foot = 23,
-  anon_sym_feet = 24,
-  anon_sym_ft = 25,
-  anon_sym_meter = 26,
-  anon_sym_meters = 27,
-  anon_sym_m = 28,
-  anon_sym_kilometer = 29,
-  anon_sym_kilometers = 30,
-  anon_sym_km = 31,
-  anon_sym_sec = 32,
-  anon_sym_min = 33,
-  anon_sym_hr = 34,
-  sym_number = 35,
-  sym_workout = 36,
-  sym_warmupStep = 37,
-  sym_cooldownStep = 38,
-  sym_intervalBlock = 39,
-  sym_intervalReps = 40,
-  sym_intervalStep = 41,
-  sym_workoutStep = 42,
-  sym_alert = 43,
-  sym_heartRateAlert = 44,
-  sym_paceAlert = 45,
-  sym_goal = 46,
-  sym_unitLength = 47,
-  sym_unitDuration = 48,
-  aux_sym_intervalReps_repeat1 = 49,
+  anon_sym_DASH = 15,
+  sym_paceTime = 16,
+  anon_sym_open = 17,
+  anon_sym_run = 18,
+  anon_sym_mile = 19,
+  anon_sym_miles = 20,
+  anon_sym_mi = 21,
+  anon_sym_yard = 22,
+  anon_sym_yards = 23,
+  anon_sym_yd = 24,
+  anon_sym_foot = 25,
+  anon_sym_feet = 26,
+  anon_sym_ft = 27,
+  anon_sym_meter = 28,
+  anon_sym_meters = 29,
+  anon_sym_m = 30,
+  anon_sym_kilometer = 31,
+  anon_sym_kilometers = 32,
+  anon_sym_km = 33,
+  sym_seconds = 34,
+  sym_minutes = 35,
+  sym_hours = 36,
+  sym_number = 37,
+  sym_workout = 38,
+  sym_warmupStep = 39,
+  sym_cooldownStep = 40,
+  sym_intervalBlock = 41,
+  sym_intervalReps = 42,
+  sym_intervalStep = 43,
+  sym_workoutStep = 44,
+  sym_alert = 45,
+  sym_heartRateAlert = 46,
+  sym_pace = 47,
+  sym_paceThresholdAlert = 48,
+  sym_paceRangeAlert = 49,
+  sym__goal = 50,
+  sym_openGoal = 51,
+  sym_distanceGoal = 52,
+  sym_durationGoal = 53,
+  sym__unitLength = 54,
+  sym_miles = 55,
+  sym_yards = 56,
+  sym_feet = 57,
+  sym_meter = 58,
+  sym_kilometer = 59,
+  sym__unitDuration = 60,
+  aux_sym_intervalReps_repeat1 = 61,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -77,32 +89,34 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_x] = "x",
   [anon_sym_recovery] = "recovery",
   [anon_sym_AT] = "@",
-  [anon_sym_z1] = "z1",
-  [anon_sym_z2] = "z2",
-  [anon_sym_z3] = "z3",
-  [anon_sym_z4] = "z4",
-  [anon_sym_z5] = "z5",
+  [sym_z1] = "z1",
+  [sym_z2] = "z2",
+  [sym_z3] = "z3",
+  [sym_z4] = "z4",
+  [sym_z5] = "z5",
   [anon_sym_SLASH] = "/",
+  [anon_sym_DASH] = "-",
   [sym_paceTime] = "paceTime",
+  [anon_sym_open] = "open",
   [anon_sym_run] = "run",
-  [anon_sym_mile] = "miles",
+  [anon_sym_mile] = "mile",
   [anon_sym_miles] = "miles",
-  [anon_sym_mi] = "miles",
-  [anon_sym_yard] = "yards",
+  [anon_sym_mi] = "mi",
+  [anon_sym_yard] = "yard",
   [anon_sym_yards] = "yards",
-  [anon_sym_yd] = "yards",
-  [anon_sym_foot] = "feet",
+  [anon_sym_yd] = "yd",
+  [anon_sym_foot] = "foot",
   [anon_sym_feet] = "feet",
-  [anon_sym_ft] = "feet",
+  [anon_sym_ft] = "ft",
   [anon_sym_meter] = "meter",
-  [anon_sym_meters] = "meter",
-  [anon_sym_m] = "meter",
+  [anon_sym_meters] = "meters",
+  [anon_sym_m] = "m",
   [anon_sym_kilometer] = "kilometer",
-  [anon_sym_kilometers] = "kilometer",
-  [anon_sym_km] = "kilometer",
-  [anon_sym_sec] = "sec",
-  [anon_sym_min] = "min",
-  [anon_sym_hr] = "hr",
+  [anon_sym_kilometers] = "kilometers",
+  [anon_sym_km] = "km",
+  [sym_seconds] = "seconds",
+  [sym_minutes] = "minutes",
+  [sym_hours] = "hours",
   [sym_number] = "number",
   [sym_workout] = "workout",
   [sym_warmupStep] = "warmupStep",
@@ -113,10 +127,20 @@ static const char * const ts_symbol_names[] = {
   [sym_workoutStep] = "workoutStep",
   [sym_alert] = "alert",
   [sym_heartRateAlert] = "heartRateAlert",
-  [sym_paceAlert] = "paceAlert",
-  [sym_goal] = "goal",
-  [sym_unitLength] = "unitLength",
-  [sym_unitDuration] = "unitDuration",
+  [sym_pace] = "pace",
+  [sym_paceThresholdAlert] = "paceThresholdAlert",
+  [sym_paceRangeAlert] = "paceRangeAlert",
+  [sym__goal] = "_goal",
+  [sym_openGoal] = "openGoal",
+  [sym_distanceGoal] = "distanceGoal",
+  [sym_durationGoal] = "durationGoal",
+  [sym__unitLength] = "_unitLength",
+  [sym_miles] = "miles",
+  [sym_yards] = "yards",
+  [sym_feet] = "feet",
+  [sym_meter] = "meter",
+  [sym_kilometer] = "kilometer",
+  [sym__unitDuration] = "_unitDuration",
   [aux_sym_intervalReps_repeat1] = "intervalReps_repeat1",
 };
 
@@ -130,32 +154,34 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_x] = anon_sym_x,
   [anon_sym_recovery] = anon_sym_recovery,
   [anon_sym_AT] = anon_sym_AT,
-  [anon_sym_z1] = anon_sym_z1,
-  [anon_sym_z2] = anon_sym_z2,
-  [anon_sym_z3] = anon_sym_z3,
-  [anon_sym_z4] = anon_sym_z4,
-  [anon_sym_z5] = anon_sym_z5,
+  [sym_z1] = sym_z1,
+  [sym_z2] = sym_z2,
+  [sym_z3] = sym_z3,
+  [sym_z4] = sym_z4,
+  [sym_z5] = sym_z5,
   [anon_sym_SLASH] = anon_sym_SLASH,
+  [anon_sym_DASH] = anon_sym_DASH,
   [sym_paceTime] = sym_paceTime,
+  [anon_sym_open] = anon_sym_open,
   [anon_sym_run] = anon_sym_run,
   [anon_sym_mile] = anon_sym_mile,
-  [anon_sym_miles] = anon_sym_mile,
-  [anon_sym_mi] = anon_sym_mile,
+  [anon_sym_miles] = anon_sym_miles,
+  [anon_sym_mi] = anon_sym_mi,
   [anon_sym_yard] = anon_sym_yard,
-  [anon_sym_yards] = anon_sym_yard,
-  [anon_sym_yd] = anon_sym_yard,
+  [anon_sym_yards] = anon_sym_yards,
+  [anon_sym_yd] = anon_sym_yd,
   [anon_sym_foot] = anon_sym_foot,
-  [anon_sym_feet] = anon_sym_foot,
-  [anon_sym_ft] = anon_sym_foot,
+  [anon_sym_feet] = anon_sym_feet,
+  [anon_sym_ft] = anon_sym_ft,
   [anon_sym_meter] = anon_sym_meter,
-  [anon_sym_meters] = anon_sym_meter,
-  [anon_sym_m] = anon_sym_meter,
+  [anon_sym_meters] = anon_sym_meters,
+  [anon_sym_m] = anon_sym_m,
   [anon_sym_kilometer] = anon_sym_kilometer,
-  [anon_sym_kilometers] = anon_sym_kilometer,
-  [anon_sym_km] = anon_sym_kilometer,
-  [anon_sym_sec] = anon_sym_sec,
-  [anon_sym_min] = anon_sym_min,
-  [anon_sym_hr] = anon_sym_hr,
+  [anon_sym_kilometers] = anon_sym_kilometers,
+  [anon_sym_km] = anon_sym_km,
+  [sym_seconds] = sym_seconds,
+  [sym_minutes] = sym_minutes,
+  [sym_hours] = sym_hours,
   [sym_number] = sym_number,
   [sym_workout] = sym_workout,
   [sym_warmupStep] = sym_warmupStep,
@@ -166,10 +192,20 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_workoutStep] = sym_workoutStep,
   [sym_alert] = sym_alert,
   [sym_heartRateAlert] = sym_heartRateAlert,
-  [sym_paceAlert] = sym_paceAlert,
-  [sym_goal] = sym_goal,
-  [sym_unitLength] = sym_unitLength,
-  [sym_unitDuration] = sym_unitDuration,
+  [sym_pace] = sym_pace,
+  [sym_paceThresholdAlert] = sym_paceThresholdAlert,
+  [sym_paceRangeAlert] = sym_paceRangeAlert,
+  [sym__goal] = sym__goal,
+  [sym_openGoal] = sym_openGoal,
+  [sym_distanceGoal] = sym_distanceGoal,
+  [sym_durationGoal] = sym_durationGoal,
+  [sym__unitLength] = sym__unitLength,
+  [sym_miles] = sym_miles,
+  [sym_yards] = sym_yards,
+  [sym_feet] = sym_feet,
+  [sym_meter] = sym_meter,
+  [sym_kilometer] = sym_kilometer,
+  [sym__unitDuration] = sym__unitDuration,
   [aux_sym_intervalReps_repeat1] = aux_sym_intervalReps_repeat1,
 };
 
@@ -210,33 +246,41 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [anon_sym_z1] = {
+  [sym_z1] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_z2] = {
+  [sym_z2] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_z3] = {
+  [sym_z3] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_z4] = {
+  [sym_z4] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_z5] = {
+  [sym_z5] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [anon_sym_SLASH] = {
+    .visible = true,
+    .named = false,
+  },
+  [anon_sym_DASH] = {
     .visible = true,
     .named = false,
   },
   [sym_paceTime] = {
     .visible = true,
     .named = true,
+  },
+  [anon_sym_open] = {
+    .visible = true,
+    .named = false,
   },
   [anon_sym_run] = {
     .visible = true,
@@ -302,17 +346,17 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [anon_sym_sec] = {
+  [sym_seconds] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_min] = {
+  [sym_minutes] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
-  [anon_sym_hr] = {
+  [sym_hours] = {
     .visible = true,
-    .named = false,
+    .named = true,
   },
   [sym_number] = {
     .visible = true,
@@ -354,20 +398,60 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_paceAlert] = {
+  [sym_pace] = {
     .visible = true,
     .named = true,
   },
-  [sym_goal] = {
+  [sym_paceThresholdAlert] = {
     .visible = true,
     .named = true,
   },
-  [sym_unitLength] = {
+  [sym_paceRangeAlert] = {
     .visible = true,
     .named = true,
   },
-  [sym_unitDuration] = {
+  [sym__goal] = {
+    .visible = false,
+    .named = true,
+  },
+  [sym_openGoal] = {
     .visible = true,
+    .named = true,
+  },
+  [sym_distanceGoal] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_durationGoal] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym__unitLength] = {
+    .visible = false,
+    .named = true,
+  },
+  [sym_miles] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_yards] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_feet] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_meter] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_kilometer] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym__unitDuration] = {
+    .visible = false,
     .named = true,
   },
   [aux_sym_intervalReps_repeat1] = {
@@ -377,21 +461,43 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
 };
 
 enum ts_field_identifiers {
-  field_purpose = 1,
+  field_duration = 1,
+  field_lower = 2,
+  field_purpose = 3,
+  field_unit = 4,
+  field_upper = 5,
+  field_value = 6,
 };
 
 static const char * const ts_field_names[] = {
   [0] = NULL,
+  [field_duration] = "duration",
+  [field_lower] = "lower",
   [field_purpose] = "purpose",
+  [field_unit] = "unit",
+  [field_upper] = "upper",
+  [field_value] = "value",
 };
 
 static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
-  [1] = {.index = 0, .length = 1},
+  [1] = {.index = 0, .length = 2},
+  [2] = {.index = 2, .length = 1},
+  [3] = {.index = 3, .length = 2},
+  [4] = {.index = 5, .length = 2},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
+    {field_unit, 1},
+    {field_value, 0},
+  [2] =
     {field_purpose, 1},
+  [3] =
+    {field_duration, 0},
+    {field_unit, 2},
+  [5] =
+    {field_lower, 0},
+    {field_upper, 2},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -431,16 +537,16 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [25] = 25,
   [26] = 26,
   [27] = 27,
-  [28] = 24,
+  [28] = 28,
   [29] = 29,
-  [30] = 26,
+  [30] = 30,
   [31] = 31,
   [32] = 32,
   [33] = 33,
-  [34] = 34,
+  [34] = 30,
   [35] = 35,
   [36] = 36,
-  [37] = 37,
+  [37] = 32,
   [38] = 38,
   [39] = 39,
   [40] = 40,
@@ -448,6 +554,13 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [42] = 42,
   [43] = 43,
   [44] = 44,
+  [45] = 45,
+  [46] = 46,
+  [47] = 47,
+  [48] = 48,
+  [49] = 49,
+  [50] = 50,
+  [51] = 51,
 };
 
 static bool ts_lex(TSLexer *lexer, TSStateId state) {
@@ -455,324 +568,342 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   eof = lexer->eof(lexer);
   switch (state) {
     case 0:
-      if (eof) ADVANCE(52);
-      if (lookahead == '(') ADVANCE(56);
-      if (lookahead == ')') ADVANCE(57);
-      if (lookahead == '+') ADVANCE(54);
-      if (lookahead == '/') ADVANCE(66);
-      if (lookahead == '@') ADVANCE(60);
-      if (lookahead == 'c') ADVANCE(28);
+      if (eof) ADVANCE(55);
+      if (lookahead == '(') ADVANCE(59);
+      if (lookahead == ')') ADVANCE(60);
+      if (lookahead == '+') ADVANCE(57);
+      if (lookahead == '-') ADVANCE(70);
+      if (lookahead == '/') ADVANCE(69);
+      if (lookahead == '@') ADVANCE(63);
+      if (lookahead == 'c') ADVANCE(30);
       if (lookahead == 'f') ADVANCE(12);
-      if (lookahead == 'h') ADVANCE(33);
-      if (lookahead == 'k') ADVANCE(19);
-      if (lookahead == 'm') ADVANCE(80);
+      if (lookahead == 'h') ADVANCE(36);
+      if (lookahead == 'k') ADVANCE(20);
+      if (lookahead == 'm') ADVANCE(85);
+      if (lookahead == 'o') ADVANCE(35);
       if (lookahead == 'r') ADVANCE(10);
       if (lookahead == 's') ADVANCE(14);
       if (lookahead == 'w') ADVANCE(4);
-      if (lookahead == 'x') ADVANCE(58);
+      if (lookahead == 'x') ADVANCE(61);
       if (lookahead == 'y') ADVANCE(5);
       if (lookahead == 'z') ADVANCE(2);
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0)
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(87);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(92);
       END_STATE();
     case 1:
-      if (lookahead == '(') ADVANCE(56);
-      if (lookahead == 'r') ADVANCE(43);
+      if (lookahead == '(') ADVANCE(59);
+      if (lookahead == 'o') ADVANCE(35);
+      if (lookahead == 'r') ADVANCE(46);
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(1)
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(88);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(93);
       END_STATE();
     case 2:
-      if (lookahead == '1') ADVANCE(61);
-      if (lookahead == '2') ADVANCE(62);
-      if (lookahead == '3') ADVANCE(63);
-      if (lookahead == '4') ADVANCE(64);
-      if (lookahead == '5') ADVANCE(65);
+      if (lookahead == '1') ADVANCE(64);
+      if (lookahead == '2') ADVANCE(65);
+      if (lookahead == '3') ADVANCE(66);
+      if (lookahead == '4') ADVANCE(67);
+      if (lookahead == '5') ADVANCE(68);
       END_STATE();
     case 3:
-      if (lookahead == ':') ADVANCE(51);
+      if (lookahead == ':') ADVANCE(54);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(3);
       END_STATE();
     case 4:
-      if (lookahead == 'a') ADVANCE(34);
+      if (lookahead == 'a') ADVANCE(37);
       END_STATE();
     case 5:
-      if (lookahead == 'a') ADVANCE(35);
-      if (lookahead == 'd') ADVANCE(74);
+      if (lookahead == 'a') ADVANCE(38);
+      if (lookahead == 'd') ADVANCE(79);
       END_STATE();
     case 6:
-      if (lookahead == 'c') ADVANCE(84);
+      if (lookahead == 'c') ADVANCE(89);
       END_STATE();
     case 7:
-      if (lookahead == 'c') ADVANCE(26);
+      if (lookahead == 'c') ADVANCE(28);
       END_STATE();
     case 8:
-      if (lookahead == 'd') ADVANCE(72);
+      if (lookahead == 'd') ADVANCE(77);
       END_STATE();
     case 9:
-      if (lookahead == 'd') ADVANCE(27);
+      if (lookahead == 'd') ADVANCE(29);
       END_STATE();
     case 10:
       if (lookahead == 'e') ADVANCE(7);
-      if (lookahead == 'u') ADVANCE(24);
+      if (lookahead == 'u') ADVANCE(25);
       END_STATE();
     case 11:
-      if (lookahead == 'e') ADVANCE(69);
+      if (lookahead == 'e') ADVANCE(74);
       END_STATE();
     case 12:
       if (lookahead == 'e') ADVANCE(13);
-      if (lookahead == 'o') ADVANCE(31);
-      if (lookahead == 't') ADVANCE(77);
+      if (lookahead == 'o') ADVANCE(33);
+      if (lookahead == 't') ADVANCE(82);
       END_STATE();
     case 13:
-      if (lookahead == 'e') ADVANCE(39);
+      if (lookahead == 'e') ADVANCE(42);
       END_STATE();
     case 14:
       if (lookahead == 'e') ADVANCE(6);
       END_STATE();
     case 15:
-      if (lookahead == 'e') ADVANCE(36);
+      if (lookahead == 'e') ADVANCE(26);
       END_STATE();
     case 16:
-      if (lookahead == 'e') ADVANCE(37);
+      if (lookahead == 'e') ADVANCE(39);
       END_STATE();
     case 17:
-      if (lookahead == 'e') ADVANCE(38);
+      if (lookahead == 'e') ADVANCE(40);
       END_STATE();
     case 18:
-      if (lookahead == 'e') ADVANCE(42);
+      if (lookahead == 'e') ADVANCE(41);
       END_STATE();
     case 19:
-      if (lookahead == 'i') ADVANCE(21);
-      if (lookahead == 'm') ADVANCE(83);
+      if (lookahead == 'e') ADVANCE(45);
       END_STATE();
     case 20:
-      if (lookahead == 'l') ADVANCE(9);
+      if (lookahead == 'i') ADVANCE(22);
+      if (lookahead == 'm') ADVANCE(88);
       END_STATE();
     case 21:
-      if (lookahead == 'l') ADVANCE(30);
+      if (lookahead == 'l') ADVANCE(9);
       END_STATE();
     case 22:
-      if (lookahead == 'm') ADVANCE(44);
+      if (lookahead == 'l') ADVANCE(32);
       END_STATE();
     case 23:
-      if (lookahead == 'm') ADVANCE(18);
+      if (lookahead == 'm') ADVANCE(47);
       END_STATE();
     case 24:
-      if (lookahead == 'n') ADVANCE(68);
+      if (lookahead == 'm') ADVANCE(19);
       END_STATE();
     case 25:
-      if (lookahead == 'n') ADVANCE(55);
+      if (lookahead == 'n') ADVANCE(73);
       END_STATE();
     case 26:
-      if (lookahead == 'o') ADVANCE(45);
+      if (lookahead == 'n') ADVANCE(72);
       END_STATE();
     case 27:
-      if (lookahead == 'o') ADVANCE(46);
+      if (lookahead == 'n') ADVANCE(58);
       END_STATE();
     case 28:
-      if (lookahead == 'o') ADVANCE(29);
+      if (lookahead == 'o') ADVANCE(48);
       END_STATE();
     case 29:
-      if (lookahead == 'o') ADVANCE(20);
+      if (lookahead == 'o') ADVANCE(49);
       END_STATE();
     case 30:
-      if (lookahead == 'o') ADVANCE(23);
+      if (lookahead == 'o') ADVANCE(31);
       END_STATE();
     case 31:
-      if (lookahead == 'o') ADVANCE(40);
+      if (lookahead == 'o') ADVANCE(21);
       END_STATE();
     case 32:
-      if (lookahead == 'p') ADVANCE(53);
+      if (lookahead == 'o') ADVANCE(24);
       END_STATE();
     case 33:
-      if (lookahead == 'r') ADVANCE(86);
+      if (lookahead == 'o') ADVANCE(43);
       END_STATE();
     case 34:
-      if (lookahead == 'r') ADVANCE(22);
+      if (lookahead == 'p') ADVANCE(56);
       END_STATE();
     case 35:
-      if (lookahead == 'r') ADVANCE(8);
+      if (lookahead == 'p') ADVANCE(15);
       END_STATE();
     case 36:
-      if (lookahead == 'r') ADVANCE(78);
+      if (lookahead == 'r') ADVANCE(91);
       END_STATE();
     case 37:
-      if (lookahead == 'r') ADVANCE(47);
+      if (lookahead == 'r') ADVANCE(23);
       END_STATE();
     case 38:
-      if (lookahead == 'r') ADVANCE(81);
+      if (lookahead == 'r') ADVANCE(8);
       END_STATE();
     case 39:
-      if (lookahead == 't') ADVANCE(76);
+      if (lookahead == 'r') ADVANCE(83);
       END_STATE();
     case 40:
-      if (lookahead == 't') ADVANCE(75);
+      if (lookahead == 'r') ADVANCE(50);
       END_STATE();
     case 41:
-      if (lookahead == 't') ADVANCE(15);
+      if (lookahead == 'r') ADVANCE(86);
       END_STATE();
     case 42:
-      if (lookahead == 't') ADVANCE(17);
+      if (lookahead == 't') ADVANCE(81);
       END_STATE();
     case 43:
-      if (lookahead == 'u') ADVANCE(24);
+      if (lookahead == 't') ADVANCE(80);
       END_STATE();
     case 44:
-      if (lookahead == 'u') ADVANCE(32);
+      if (lookahead == 't') ADVANCE(16);
       END_STATE();
     case 45:
-      if (lookahead == 'v') ADVANCE(16);
+      if (lookahead == 't') ADVANCE(18);
       END_STATE();
     case 46:
-      if (lookahead == 'w') ADVANCE(25);
+      if (lookahead == 'u') ADVANCE(25);
       END_STATE();
     case 47:
-      if (lookahead == 'y') ADVANCE(59);
+      if (lookahead == 'u') ADVANCE(34);
       END_STATE();
     case 48:
-      if (lookahead == 'z') ADVANCE(2);
-      if (('\t' <= lookahead && lookahead <= '\r') ||
-          lookahead == ' ') SKIP(48)
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(3);
+      if (lookahead == 'v') ADVANCE(17);
       END_STATE();
     case 49:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(89);
+      if (lookahead == 'w') ADVANCE(27);
       END_STATE();
     case 50:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(67);
+      if (lookahead == 'y') ADVANCE(62);
       END_STATE();
     case 51:
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(50);
+      if (lookahead == 'z') ADVANCE(2);
+      if (('\t' <= lookahead && lookahead <= '\r') ||
+          lookahead == ' ') SKIP(51)
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(3);
       END_STATE();
     case 52:
-      ACCEPT_TOKEN(ts_builtin_sym_end);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
       END_STATE();
     case 53:
-      ACCEPT_TOKEN(anon_sym_warmup);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(71);
       END_STATE();
     case 54:
-      ACCEPT_TOKEN(anon_sym_PLUS);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(53);
       END_STATE();
     case 55:
-      ACCEPT_TOKEN(anon_sym_cooldown);
+      ACCEPT_TOKEN(ts_builtin_sym_end);
       END_STATE();
     case 56:
-      ACCEPT_TOKEN(anon_sym_LPAREN);
+      ACCEPT_TOKEN(anon_sym_warmup);
       END_STATE();
     case 57:
-      ACCEPT_TOKEN(anon_sym_RPAREN);
+      ACCEPT_TOKEN(anon_sym_PLUS);
       END_STATE();
     case 58:
-      ACCEPT_TOKEN(anon_sym_x);
+      ACCEPT_TOKEN(anon_sym_cooldown);
       END_STATE();
     case 59:
-      ACCEPT_TOKEN(anon_sym_recovery);
+      ACCEPT_TOKEN(anon_sym_LPAREN);
       END_STATE();
     case 60:
-      ACCEPT_TOKEN(anon_sym_AT);
+      ACCEPT_TOKEN(anon_sym_RPAREN);
       END_STATE();
     case 61:
-      ACCEPT_TOKEN(anon_sym_z1);
+      ACCEPT_TOKEN(anon_sym_x);
       END_STATE();
     case 62:
-      ACCEPT_TOKEN(anon_sym_z2);
+      ACCEPT_TOKEN(anon_sym_recovery);
       END_STATE();
     case 63:
-      ACCEPT_TOKEN(anon_sym_z3);
+      ACCEPT_TOKEN(anon_sym_AT);
       END_STATE();
     case 64:
-      ACCEPT_TOKEN(anon_sym_z4);
+      ACCEPT_TOKEN(sym_z1);
       END_STATE();
     case 65:
-      ACCEPT_TOKEN(anon_sym_z5);
+      ACCEPT_TOKEN(sym_z2);
       END_STATE();
     case 66:
-      ACCEPT_TOKEN(anon_sym_SLASH);
+      ACCEPT_TOKEN(sym_z3);
       END_STATE();
     case 67:
-      ACCEPT_TOKEN(sym_paceTime);
+      ACCEPT_TOKEN(sym_z4);
       END_STATE();
     case 68:
-      ACCEPT_TOKEN(anon_sym_run);
+      ACCEPT_TOKEN(sym_z5);
       END_STATE();
     case 69:
-      ACCEPT_TOKEN(anon_sym_mile);
-      if (lookahead == 's') ADVANCE(70);
+      ACCEPT_TOKEN(anon_sym_SLASH);
       END_STATE();
     case 70:
-      ACCEPT_TOKEN(anon_sym_miles);
+      ACCEPT_TOKEN(anon_sym_DASH);
       END_STATE();
     case 71:
-      ACCEPT_TOKEN(anon_sym_mi);
-      if (lookahead == 'l') ADVANCE(11);
-      if (lookahead == 'n') ADVANCE(85);
+      ACCEPT_TOKEN(sym_paceTime);
       END_STATE();
     case 72:
-      ACCEPT_TOKEN(anon_sym_yard);
-      if (lookahead == 's') ADVANCE(73);
+      ACCEPT_TOKEN(anon_sym_open);
       END_STATE();
     case 73:
-      ACCEPT_TOKEN(anon_sym_yards);
+      ACCEPT_TOKEN(anon_sym_run);
       END_STATE();
     case 74:
-      ACCEPT_TOKEN(anon_sym_yd);
+      ACCEPT_TOKEN(anon_sym_mile);
+      if (lookahead == 's') ADVANCE(75);
       END_STATE();
     case 75:
-      ACCEPT_TOKEN(anon_sym_foot);
+      ACCEPT_TOKEN(anon_sym_miles);
       END_STATE();
     case 76:
-      ACCEPT_TOKEN(anon_sym_feet);
+      ACCEPT_TOKEN(anon_sym_mi);
+      if (lookahead == 'l') ADVANCE(11);
+      if (lookahead == 'n') ADVANCE(90);
       END_STATE();
     case 77:
-      ACCEPT_TOKEN(anon_sym_ft);
+      ACCEPT_TOKEN(anon_sym_yard);
+      if (lookahead == 's') ADVANCE(78);
       END_STATE();
     case 78:
-      ACCEPT_TOKEN(anon_sym_meter);
-      if (lookahead == 's') ADVANCE(79);
+      ACCEPT_TOKEN(anon_sym_yards);
       END_STATE();
     case 79:
-      ACCEPT_TOKEN(anon_sym_meters);
+      ACCEPT_TOKEN(anon_sym_yd);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(anon_sym_m);
-      if (lookahead == 'e') ADVANCE(41);
-      if (lookahead == 'i') ADVANCE(71);
+      ACCEPT_TOKEN(anon_sym_foot);
       END_STATE();
     case 81:
-      ACCEPT_TOKEN(anon_sym_kilometer);
-      if (lookahead == 's') ADVANCE(82);
+      ACCEPT_TOKEN(anon_sym_feet);
       END_STATE();
     case 82:
-      ACCEPT_TOKEN(anon_sym_kilometers);
+      ACCEPT_TOKEN(anon_sym_ft);
       END_STATE();
     case 83:
-      ACCEPT_TOKEN(anon_sym_km);
+      ACCEPT_TOKEN(anon_sym_meter);
+      if (lookahead == 's') ADVANCE(84);
       END_STATE();
     case 84:
-      ACCEPT_TOKEN(anon_sym_sec);
+      ACCEPT_TOKEN(anon_sym_meters);
       END_STATE();
     case 85:
-      ACCEPT_TOKEN(anon_sym_min);
+      ACCEPT_TOKEN(anon_sym_m);
+      if (lookahead == 'e') ADVANCE(44);
+      if (lookahead == 'i') ADVANCE(76);
       END_STATE();
     case 86:
-      ACCEPT_TOKEN(anon_sym_hr);
+      ACCEPT_TOKEN(anon_sym_kilometer);
+      if (lookahead == 's') ADVANCE(87);
       END_STATE();
     case 87:
-      ACCEPT_TOKEN(sym_number);
-      if (lookahead == '.') ADVANCE(49);
-      if (lookahead == ':') ADVANCE(51);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(87);
+      ACCEPT_TOKEN(anon_sym_kilometers);
       END_STATE();
     case 88:
-      ACCEPT_TOKEN(sym_number);
-      if (lookahead == '.') ADVANCE(49);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(88);
+      ACCEPT_TOKEN(anon_sym_km);
       END_STATE();
     case 89:
+      ACCEPT_TOKEN(sym_seconds);
+      END_STATE();
+    case 90:
+      ACCEPT_TOKEN(sym_minutes);
+      END_STATE();
+    case 91:
+      ACCEPT_TOKEN(sym_hours);
+      END_STATE();
+    case 92:
       ACCEPT_TOKEN(sym_number);
-      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(89);
+      if (lookahead == '.') ADVANCE(52);
+      if (lookahead == ':') ADVANCE(54);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(92);
+      END_STATE();
+    case 93:
+      ACCEPT_TOKEN(sym_number);
+      if (lookahead == '.') ADVANCE(52);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(93);
+      END_STATE();
+    case 94:
+      ACCEPT_TOKEN(sym_number);
+      if (('0' <= lookahead && lookahead <= '9')) ADVANCE(94);
       END_STATE();
     default:
       return false;
@@ -785,46 +916,53 @@ static const TSLexMode ts_lex_modes[STATE_COUNT] = {
   [2] = {.lex_state = 0},
   [3] = {.lex_state = 0},
   [4] = {.lex_state = 0},
-  [5] = {.lex_state = 48},
-  [6] = {.lex_state = 1},
-  [7] = {.lex_state = 0},
-  [8] = {.lex_state = 0},
-  [9] = {.lex_state = 0},
+  [5] = {.lex_state = 1},
+  [6] = {.lex_state = 51},
+  [7] = {.lex_state = 1},
+  [8] = {.lex_state = 1},
+  [9] = {.lex_state = 1},
   [10] = {.lex_state = 0},
   [11] = {.lex_state = 0},
-  [12] = {.lex_state = 1},
+  [12] = {.lex_state = 0},
   [13] = {.lex_state = 0},
   [14] = {.lex_state = 0},
-  [15] = {.lex_state = 0},
+  [15] = {.lex_state = 1},
   [16] = {.lex_state = 0},
-  [17] = {.lex_state = 1},
-  [18] = {.lex_state = 1},
+  [17] = {.lex_state = 0},
+  [18] = {.lex_state = 0},
   [19] = {.lex_state = 0},
   [20] = {.lex_state = 0},
-  [21] = {.lex_state = 1},
+  [21] = {.lex_state = 0},
   [22] = {.lex_state = 0},
   [23] = {.lex_state = 0},
   [24] = {.lex_state = 0},
   [25] = {.lex_state = 0},
   [26] = {.lex_state = 0},
   [27] = {.lex_state = 0},
-  [28] = {.lex_state = 0},
+  [28] = {.lex_state = 1},
   [29] = {.lex_state = 0},
   [30] = {.lex_state = 0},
-  [31] = {.lex_state = 1},
+  [31] = {.lex_state = 0},
   [32] = {.lex_state = 0},
   [33] = {.lex_state = 0},
   [34] = {.lex_state = 0},
   [35] = {.lex_state = 0},
   [36] = {.lex_state = 0},
   [37] = {.lex_state = 0},
-  [38] = {.lex_state = 0},
+  [38] = {.lex_state = 51},
   [39] = {.lex_state = 0},
   [40] = {.lex_state = 0},
   [41] = {.lex_state = 0},
   [42] = {.lex_state = 0},
   [43] = {.lex_state = 0},
   [44] = {.lex_state = 0},
+  [45] = {.lex_state = 0},
+  [46] = {.lex_state = 0},
+  [47] = {.lex_state = 0},
+  [48] = {.lex_state = 0},
+  [49] = {.lex_state = 0},
+  [50] = {.lex_state = 0},
+  [51] = {.lex_state = 0},
 };
 
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
@@ -838,13 +976,15 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_x] = ACTIONS(1),
     [anon_sym_recovery] = ACTIONS(1),
     [anon_sym_AT] = ACTIONS(1),
-    [anon_sym_z1] = ACTIONS(1),
-    [anon_sym_z2] = ACTIONS(1),
-    [anon_sym_z3] = ACTIONS(1),
-    [anon_sym_z4] = ACTIONS(1),
-    [anon_sym_z5] = ACTIONS(1),
+    [sym_z1] = ACTIONS(1),
+    [sym_z2] = ACTIONS(1),
+    [sym_z3] = ACTIONS(1),
+    [sym_z4] = ACTIONS(1),
+    [sym_z5] = ACTIONS(1),
     [anon_sym_SLASH] = ACTIONS(1),
+    [anon_sym_DASH] = ACTIONS(1),
     [sym_paceTime] = ACTIONS(1),
+    [anon_sym_open] = ACTIONS(1),
     [anon_sym_run] = ACTIONS(1),
     [anon_sym_mile] = ACTIONS(1),
     [anon_sym_miles] = ACTIONS(1),
@@ -861,469 +1001,621 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_kilometer] = ACTIONS(1),
     [anon_sym_kilometers] = ACTIONS(1),
     [anon_sym_km] = ACTIONS(1),
-    [anon_sym_sec] = ACTIONS(1),
-    [anon_sym_min] = ACTIONS(1),
-    [anon_sym_hr] = ACTIONS(1),
+    [sym_seconds] = ACTIONS(1),
+    [sym_minutes] = ACTIONS(1),
+    [sym_hours] = ACTIONS(1),
     [sym_number] = ACTIONS(1),
   },
   [1] = {
-    [sym_workout] = STATE(40),
-    [sym_warmupStep] = STATE(6),
-    [sym_intervalBlock] = STATE(29),
-    [sym_intervalReps] = STATE(34),
-    [sym_intervalStep] = STATE(24),
-    [sym_workoutStep] = STATE(20),
-    [sym_goal] = STATE(9),
+    [sym_workout] = STATE(51),
+    [sym_warmupStep] = STATE(5),
+    [sym_intervalBlock] = STATE(33),
+    [sym_intervalReps] = STATE(40),
+    [sym_intervalStep] = STATE(37),
+    [sym_workoutStep] = STATE(29),
+    [sym__goal] = STATE(18),
+    [sym_openGoal] = STATE(18),
+    [sym_distanceGoal] = STATE(18),
+    [sym_durationGoal] = STATE(18),
     [anon_sym_LPAREN] = ACTIONS(3),
+    [anon_sym_open] = ACTIONS(5),
     [anon_sym_run] = ACTIONS(5),
     [sym_number] = ACTIONS(7),
   },
 };
 
 static const uint16_t ts_small_parse_table[] = {
-  [0] = 5,
+  [0] = 13,
     ACTIONS(9), 1,
       anon_sym_x,
-    STATE(7), 2,
-      sym_unitLength,
-      sym_unitDuration,
-    ACTIONS(15), 3,
-      anon_sym_sec,
-      anon_sym_min,
-      anon_sym_hr,
-    ACTIONS(11), 6,
+    ACTIONS(13), 1,
+      anon_sym_miles,
+    ACTIONS(15), 1,
+      anon_sym_yard,
+    ACTIONS(23), 1,
+      anon_sym_meters,
+    ACTIONS(25), 1,
+      anon_sym_kilometer,
+    STATE(21), 1,
+      sym__unitDuration,
+    ACTIONS(11), 2,
       anon_sym_mile,
       anon_sym_mi,
-      anon_sym_yard,
-      anon_sym_meter,
-      anon_sym_m,
-      anon_sym_kilometer,
-    ACTIONS(13), 9,
-      anon_sym_miles,
+    ACTIONS(17), 2,
       anon_sym_yards,
       anon_sym_yd,
+    ACTIONS(21), 2,
+      anon_sym_meter,
+      anon_sym_m,
+    ACTIONS(27), 2,
+      anon_sym_kilometers,
+      anon_sym_km,
+    ACTIONS(19), 3,
       anon_sym_foot,
       anon_sym_feet,
       anon_sym_ft,
+    ACTIONS(29), 3,
+      sym_seconds,
+      sym_minutes,
+      sym_hours,
+    STATE(20), 6,
+      sym__unitLength,
+      sym_miles,
+      sym_yards,
+      sym_feet,
+      sym_meter,
+      sym_kilometer,
+  [53] = 12,
+    ACTIONS(13), 1,
+      anon_sym_miles,
+    ACTIONS(15), 1,
+      anon_sym_yard,
+    ACTIONS(23), 1,
       anon_sym_meters,
-      anon_sym_kilometers,
-      anon_sym_km,
-  [32] = 4,
-    STATE(7), 2,
-      sym_unitLength,
-      sym_unitDuration,
-    ACTIONS(15), 3,
-      anon_sym_sec,
-      anon_sym_min,
-      anon_sym_hr,
-    ACTIONS(11), 6,
+    ACTIONS(25), 1,
+      anon_sym_kilometer,
+    STATE(21), 1,
+      sym__unitDuration,
+    ACTIONS(11), 2,
       anon_sym_mile,
       anon_sym_mi,
-      anon_sym_yard,
-      anon_sym_meter,
-      anon_sym_m,
-      anon_sym_kilometer,
-    ACTIONS(13), 9,
-      anon_sym_miles,
+    ACTIONS(17), 2,
       anon_sym_yards,
       anon_sym_yd,
+    ACTIONS(21), 2,
+      anon_sym_meter,
+      anon_sym_m,
+    ACTIONS(27), 2,
+      anon_sym_kilometers,
+      anon_sym_km,
+    ACTIONS(19), 3,
       anon_sym_foot,
       anon_sym_feet,
       anon_sym_ft,
+    ACTIONS(29), 3,
+      sym_seconds,
+      sym_minutes,
+      sym_hours,
+    STATE(20), 6,
+      sym__unitLength,
+      sym_miles,
+      sym_yards,
+      sym_feet,
+      sym_meter,
+      sym_kilometer,
+  [103] = 10,
+    ACTIONS(13), 1,
+      anon_sym_miles,
+    ACTIONS(15), 1,
+      anon_sym_yard,
+    ACTIONS(23), 1,
       anon_sym_meters,
-      anon_sym_kilometers,
-      anon_sym_km,
-  [61] = 3,
-    STATE(13), 1,
-      sym_unitLength,
-    ACTIONS(11), 6,
+    ACTIONS(25), 1,
+      anon_sym_kilometer,
+    ACTIONS(11), 2,
       anon_sym_mile,
       anon_sym_mi,
-      anon_sym_yard,
-      anon_sym_meter,
-      anon_sym_m,
-      anon_sym_kilometer,
-    ACTIONS(13), 9,
-      anon_sym_miles,
+    ACTIONS(17), 2,
       anon_sym_yards,
       anon_sym_yd,
+    ACTIONS(21), 2,
+      anon_sym_meter,
+      anon_sym_m,
+    ACTIONS(27), 2,
+      anon_sym_kilometers,
+      anon_sym_km,
+    ACTIONS(19), 3,
       anon_sym_foot,
       anon_sym_feet,
       anon_sym_ft,
-      anon_sym_meters,
-      anon_sym_kilometers,
-      anon_sym_km,
-  [84] = 4,
-    ACTIONS(19), 1,
-      sym_paceTime,
-    STATE(15), 1,
-      sym_alert,
-    STATE(14), 2,
-      sym_heartRateAlert,
-      sym_paceAlert,
-    ACTIONS(17), 5,
-      anon_sym_z1,
-      anon_sym_z2,
-      anon_sym_z3,
-      anon_sym_z4,
-      anon_sym_z5,
-  [102] = 8,
+    STATE(16), 6,
+      sym__unitLength,
+      sym_miles,
+      sym_yards,
+      sym_feet,
+      sym_meter,
+      sym_kilometer,
+  [145] = 8,
     ACTIONS(3), 1,
       anon_sym_LPAREN,
-    ACTIONS(5), 1,
-      anon_sym_run,
     ACTIONS(7), 1,
       sym_number,
-    STATE(9), 1,
-      sym_goal,
-    STATE(19), 1,
+    STATE(26), 1,
       sym_workoutStep,
-    STATE(24), 1,
-      sym_intervalStep,
-    STATE(27), 1,
+    STATE(36), 1,
       sym_intervalBlock,
-    STATE(34), 1,
-      sym_intervalReps,
-  [127] = 1,
-    ACTIONS(21), 7,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-      anon_sym_AT,
-  [137] = 1,
-    ACTIONS(23), 7,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-      anon_sym_AT,
-  [147] = 2,
-    ACTIONS(27), 1,
-      anon_sym_AT,
-    ACTIONS(25), 6,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-  [159] = 1,
-    ACTIONS(29), 7,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-      anon_sym_AT,
-  [169] = 1,
-    ACTIONS(31), 7,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-      anon_sym_AT,
-  [179] = 6,
-    ACTIONS(5), 1,
-      anon_sym_run,
-    ACTIONS(33), 1,
-      sym_number,
-    STATE(9), 1,
-      sym_goal,
-    STATE(19), 1,
-      sym_workoutStep,
-    STATE(28), 1,
+    STATE(37), 1,
       sym_intervalStep,
-    STATE(35), 1,
+    STATE(40), 1,
       sym_intervalReps,
-  [198] = 1,
-    ACTIONS(35), 6,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-  [207] = 1,
-    ACTIONS(37), 6,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-  [216] = 1,
-    ACTIONS(39), 6,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-  [225] = 1,
-    ACTIONS(41), 6,
-      ts_builtin_sym_end,
-      anon_sym_warmup,
-      anon_sym_PLUS,
-      anon_sym_cooldown,
-      anon_sym_RPAREN,
-      anon_sym_recovery,
-  [234] = 6,
-    ACTIONS(5), 1,
+    ACTIONS(5), 2,
+      anon_sym_open,
       anon_sym_run,
+    STATE(18), 4,
+      sym__goal,
+      sym_openGoal,
+      sym_distanceGoal,
+      sym_durationGoal,
+  [174] = 5,
     ACTIONS(33), 1,
+      sym_paceTime,
+    STATE(17), 1,
+      sym_pace,
+    STATE(24), 1,
+      sym_alert,
+    STATE(22), 3,
+      sym_heartRateAlert,
+      sym_paceThresholdAlert,
+      sym_paceRangeAlert,
+    ACTIONS(31), 5,
+      sym_z1,
+      sym_z2,
+      sym_z3,
+      sym_z4,
+      sym_z5,
+  [196] = 6,
+    ACTIONS(35), 1,
       sym_number,
-    STATE(9), 1,
-      sym_goal,
-    STATE(19), 1,
+    STATE(26), 1,
       sym_workoutStep,
-    STATE(28), 1,
+    STATE(32), 1,
       sym_intervalStep,
-    STATE(38), 1,
+    STATE(45), 1,
       sym_intervalReps,
-  [253] = 5,
-    ACTIONS(5), 1,
+    ACTIONS(5), 2,
+      anon_sym_open,
       anon_sym_run,
-    ACTIONS(33), 1,
+    STATE(18), 4,
+      sym__goal,
+      sym_openGoal,
+      sym_distanceGoal,
+      sym_durationGoal,
+  [219] = 6,
+    ACTIONS(35), 1,
       sym_number,
-    STATE(9), 1,
-      sym_goal,
-    STATE(19), 1,
+    STATE(26), 1,
       sym_workoutStep,
-    STATE(23), 1,
+    STATE(32), 1,
       sym_intervalStep,
-  [269] = 2,
-    ACTIONS(45), 1,
-      anon_sym_recovery,
-    ACTIONS(43), 3,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-      anon_sym_RPAREN,
-  [278] = 3,
-    ACTIONS(45), 1,
-      anon_sym_recovery,
-    ACTIONS(47), 1,
-      anon_sym_warmup,
-    ACTIONS(43), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [289] = 4,
-    ACTIONS(5), 1,
-      anon_sym_run,
-    ACTIONS(33), 1,
-      sym_number,
-    STATE(9), 1,
-      sym_goal,
     STATE(43), 1,
+      sym_intervalReps,
+    ACTIONS(5), 2,
+      anon_sym_open,
+      anon_sym_run,
+    STATE(18), 4,
+      sym__goal,
+      sym_openGoal,
+      sym_distanceGoal,
+      sym_durationGoal,
+  [242] = 5,
+    ACTIONS(35), 1,
+      sym_number,
+    STATE(26), 1,
       sym_workoutStep,
-  [302] = 3,
+    STATE(35), 1,
+      sym_intervalStep,
+    ACTIONS(5), 2,
+      anon_sym_open,
+      anon_sym_run,
+    STATE(18), 4,
+      sym__goal,
+      sym_openGoal,
+      sym_distanceGoal,
+      sym_durationGoal,
+  [262] = 1,
+    ACTIONS(37), 8,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+      anon_sym_DASH,
+  [273] = 1,
+    ACTIONS(39), 8,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+      anon_sym_DASH,
+  [284] = 1,
+    ACTIONS(41), 8,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+      anon_sym_DASH,
+  [295] = 1,
+    ACTIONS(43), 8,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+      anon_sym_DASH,
+  [306] = 1,
+    ACTIONS(45), 8,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+      anon_sym_DASH,
+  [317] = 4,
+    ACTIONS(35), 1,
+      sym_number,
+    STATE(49), 1,
+      sym_workoutStep,
+    ACTIONS(5), 2,
+      anon_sym_open,
+      anon_sym_run,
+    STATE(18), 4,
+      sym__goal,
+      sym_openGoal,
+      sym_distanceGoal,
+      sym_durationGoal,
+  [334] = 1,
+    ACTIONS(47), 7,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_DASH,
+  [344] = 2,
     ACTIONS(51), 1,
+      anon_sym_DASH,
+    ACTIONS(49), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
       anon_sym_PLUS,
-    STATE(22), 1,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [356] = 2,
+    ACTIONS(55), 1,
+      anon_sym_AT,
+    ACTIONS(53), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [368] = 1,
+    ACTIONS(57), 7,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+  [378] = 1,
+    ACTIONS(59), 7,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+  [388] = 1,
+    ACTIONS(61), 7,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+      anon_sym_AT,
+  [398] = 1,
+    ACTIONS(63), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [407] = 1,
+    ACTIONS(65), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [416] = 1,
+    ACTIONS(67), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [425] = 1,
+    ACTIONS(69), 6,
+      ts_builtin_sym_end,
+      anon_sym_warmup,
+      anon_sym_PLUS,
+      anon_sym_cooldown,
+      anon_sym_RPAREN,
+      anon_sym_recovery,
+  [434] = 2,
+    ACTIONS(73), 1,
+      anon_sym_recovery,
+    ACTIONS(71), 3,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+      anon_sym_RPAREN,
+  [443] = 3,
+    ACTIONS(77), 1,
+      anon_sym_PLUS,
+    STATE(27), 1,
       aux_sym_intervalReps_repeat1,
-    ACTIONS(49), 2,
+    ACTIONS(75), 2,
       ts_builtin_sym_end,
       anon_sym_RPAREN,
-  [313] = 1,
-    ACTIONS(49), 3,
+  [454] = 1,
+    ACTIONS(80), 4,
+      anon_sym_LPAREN,
+      anon_sym_open,
+      anon_sym_run,
+      sym_number,
+  [461] = 3,
+    ACTIONS(73), 1,
+      anon_sym_recovery,
+    ACTIONS(82), 1,
+      anon_sym_warmup,
+    ACTIONS(71), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [472] = 3,
+    ACTIONS(84), 1,
+      anon_sym_PLUS,
+    ACTIONS(86), 1,
+      anon_sym_RPAREN,
+    STATE(27), 1,
+      aux_sym_intervalReps_repeat1,
+  [482] = 1,
+    ACTIONS(88), 3,
       ts_builtin_sym_end,
       anon_sym_PLUS,
       anon_sym_RPAREN,
-  [319] = 2,
+  [488] = 3,
+    ACTIONS(84), 1,
+      anon_sym_PLUS,
+    ACTIONS(90), 1,
+      anon_sym_RPAREN,
     STATE(30), 1,
       aux_sym_intervalReps_repeat1,
-    ACTIONS(54), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [327] = 1,
-    ACTIONS(56), 3,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-      anon_sym_RPAREN,
-  [333] = 3,
-    ACTIONS(58), 1,
-      anon_sym_PLUS,
-    ACTIONS(60), 1,
-      anon_sym_RPAREN,
-    STATE(22), 1,
-      aux_sym_intervalReps_repeat1,
-  [343] = 3,
-    ACTIONS(62), 1,
-      ts_builtin_sym_end,
-    ACTIONS(64), 1,
-      anon_sym_PLUS,
-    STATE(44), 1,
-      sym_cooldownStep,
-  [353] = 3,
-    ACTIONS(54), 1,
-      anon_sym_RPAREN,
-    ACTIONS(58), 1,
-      anon_sym_PLUS,
-    STATE(26), 1,
-      aux_sym_intervalReps_repeat1,
-  [363] = 3,
-    ACTIONS(64), 1,
-      anon_sym_PLUS,
-    ACTIONS(66), 1,
-      ts_builtin_sym_end,
-    STATE(36), 1,
-      sym_cooldownStep,
-  [373] = 2,
-    STATE(22), 1,
-      aux_sym_intervalReps_repeat1,
-    ACTIONS(60), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [381] = 1,
-    ACTIONS(68), 3,
-      anon_sym_LPAREN,
-      anon_sym_run,
-      sym_number,
-  [387] = 1,
-    ACTIONS(70), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [392] = 1,
-    ACTIONS(72), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [397] = 1,
-    ACTIONS(74), 2,
-      ts_builtin_sym_end,
-      anon_sym_PLUS,
-  [402] = 1,
-    ACTIONS(76), 1,
-      anon_sym_RPAREN,
-  [406] = 1,
-    ACTIONS(62), 1,
-      ts_builtin_sym_end,
-  [410] = 1,
-    ACTIONS(78), 1,
-      anon_sym_SLASH,
-  [414] = 1,
-    ACTIONS(80), 1,
-      anon_sym_RPAREN,
-  [418] = 1,
-    ACTIONS(82), 1,
-      ts_builtin_sym_end,
-  [422] = 1,
-    ACTIONS(84), 1,
-      ts_builtin_sym_end,
-  [426] = 1,
-    ACTIONS(86), 1,
-      anon_sym_PLUS,
-  [430] = 1,
-    ACTIONS(88), 1,
-      anon_sym_LPAREN,
-  [434] = 1,
-    ACTIONS(90), 1,
-      anon_sym_cooldown,
-  [438] = 1,
+  [498] = 3,
     ACTIONS(92), 1,
+      ts_builtin_sym_end,
+    ACTIONS(94), 1,
+      anon_sym_PLUS,
+    STATE(50), 1,
+      sym_cooldownStep,
+  [508] = 2,
+    STATE(27), 1,
+      aux_sym_intervalReps_repeat1,
+    ACTIONS(86), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [516] = 1,
+    ACTIONS(75), 3,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+      anon_sym_RPAREN,
+  [522] = 3,
+    ACTIONS(94), 1,
+      anon_sym_PLUS,
+    ACTIONS(96), 1,
+      ts_builtin_sym_end,
+    STATE(42), 1,
+      sym_cooldownStep,
+  [532] = 2,
+    STATE(34), 1,
+      aux_sym_intervalReps_repeat1,
+    ACTIONS(90), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [540] = 2,
+    ACTIONS(33), 1,
+      sym_paceTime,
+    STATE(23), 1,
+      sym_pace,
+  [547] = 1,
+    ACTIONS(98), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [552] = 1,
+    ACTIONS(100), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [557] = 1,
+    ACTIONS(102), 2,
+      ts_builtin_sym_end,
+      anon_sym_PLUS,
+  [562] = 1,
+    ACTIONS(104), 1,
+      ts_builtin_sym_end,
+  [566] = 1,
+    ACTIONS(106), 1,
+      anon_sym_RPAREN,
+  [570] = 1,
+    ACTIONS(108), 1,
+      ts_builtin_sym_end,
+  [574] = 1,
+    ACTIONS(110), 1,
+      anon_sym_RPAREN,
+  [578] = 1,
+    ACTIONS(112), 1,
+      anon_sym_LPAREN,
+  [582] = 1,
+    ACTIONS(114), 1,
+      anon_sym_PLUS,
+  [586] = 1,
+    ACTIONS(116), 1,
+      anon_sym_SLASH,
+  [590] = 1,
+    ACTIONS(118), 1,
+      anon_sym_cooldown,
+  [594] = 1,
+    ACTIONS(96), 1,
+      ts_builtin_sym_end,
+  [598] = 1,
+    ACTIONS(120), 1,
       ts_builtin_sym_end,
 };
 
 static const uint32_t ts_small_parse_table_map[] = {
   [SMALL_STATE(2)] = 0,
-  [SMALL_STATE(3)] = 32,
-  [SMALL_STATE(4)] = 61,
-  [SMALL_STATE(5)] = 84,
-  [SMALL_STATE(6)] = 102,
-  [SMALL_STATE(7)] = 127,
-  [SMALL_STATE(8)] = 137,
-  [SMALL_STATE(9)] = 147,
-  [SMALL_STATE(10)] = 159,
-  [SMALL_STATE(11)] = 169,
-  [SMALL_STATE(12)] = 179,
-  [SMALL_STATE(13)] = 198,
-  [SMALL_STATE(14)] = 207,
-  [SMALL_STATE(15)] = 216,
-  [SMALL_STATE(16)] = 225,
-  [SMALL_STATE(17)] = 234,
-  [SMALL_STATE(18)] = 253,
-  [SMALL_STATE(19)] = 269,
-  [SMALL_STATE(20)] = 278,
-  [SMALL_STATE(21)] = 289,
-  [SMALL_STATE(22)] = 302,
-  [SMALL_STATE(23)] = 313,
-  [SMALL_STATE(24)] = 319,
-  [SMALL_STATE(25)] = 327,
-  [SMALL_STATE(26)] = 333,
-  [SMALL_STATE(27)] = 343,
-  [SMALL_STATE(28)] = 353,
-  [SMALL_STATE(29)] = 363,
-  [SMALL_STATE(30)] = 373,
-  [SMALL_STATE(31)] = 381,
-  [SMALL_STATE(32)] = 387,
-  [SMALL_STATE(33)] = 392,
-  [SMALL_STATE(34)] = 397,
-  [SMALL_STATE(35)] = 402,
-  [SMALL_STATE(36)] = 406,
-  [SMALL_STATE(37)] = 410,
-  [SMALL_STATE(38)] = 414,
-  [SMALL_STATE(39)] = 418,
-  [SMALL_STATE(40)] = 422,
-  [SMALL_STATE(41)] = 426,
-  [SMALL_STATE(42)] = 430,
-  [SMALL_STATE(43)] = 434,
-  [SMALL_STATE(44)] = 438,
+  [SMALL_STATE(3)] = 53,
+  [SMALL_STATE(4)] = 103,
+  [SMALL_STATE(5)] = 145,
+  [SMALL_STATE(6)] = 174,
+  [SMALL_STATE(7)] = 196,
+  [SMALL_STATE(8)] = 219,
+  [SMALL_STATE(9)] = 242,
+  [SMALL_STATE(10)] = 262,
+  [SMALL_STATE(11)] = 273,
+  [SMALL_STATE(12)] = 284,
+  [SMALL_STATE(13)] = 295,
+  [SMALL_STATE(14)] = 306,
+  [SMALL_STATE(15)] = 317,
+  [SMALL_STATE(16)] = 334,
+  [SMALL_STATE(17)] = 344,
+  [SMALL_STATE(18)] = 356,
+  [SMALL_STATE(19)] = 368,
+  [SMALL_STATE(20)] = 378,
+  [SMALL_STATE(21)] = 388,
+  [SMALL_STATE(22)] = 398,
+  [SMALL_STATE(23)] = 407,
+  [SMALL_STATE(24)] = 416,
+  [SMALL_STATE(25)] = 425,
+  [SMALL_STATE(26)] = 434,
+  [SMALL_STATE(27)] = 443,
+  [SMALL_STATE(28)] = 454,
+  [SMALL_STATE(29)] = 461,
+  [SMALL_STATE(30)] = 472,
+  [SMALL_STATE(31)] = 482,
+  [SMALL_STATE(32)] = 488,
+  [SMALL_STATE(33)] = 498,
+  [SMALL_STATE(34)] = 508,
+  [SMALL_STATE(35)] = 516,
+  [SMALL_STATE(36)] = 522,
+  [SMALL_STATE(37)] = 532,
+  [SMALL_STATE(38)] = 540,
+  [SMALL_STATE(39)] = 547,
+  [SMALL_STATE(40)] = 552,
+  [SMALL_STATE(41)] = 557,
+  [SMALL_STATE(42)] = 562,
+  [SMALL_STATE(43)] = 566,
+  [SMALL_STATE(44)] = 570,
+  [SMALL_STATE(45)] = 574,
+  [SMALL_STATE(46)] = 578,
+  [SMALL_STATE(47)] = 582,
+  [SMALL_STATE(48)] = 586,
+  [SMALL_STATE(49)] = 590,
+  [SMALL_STATE(50)] = 594,
+  [SMALL_STATE(51)] = 598,
 };
 
 static const TSParseActionEntry ts_parse_actions[] = {
   [0] = {.entry = {.count = 0, .reusable = false}},
   [1] = {.entry = {.count = 1, .reusable = false}}, RECOVER(),
-  [3] = {.entry = {.count = 1, .reusable = true}}, SHIFT(12),
-  [5] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
+  [3] = {.entry = {.count = 1, .reusable = true}}, SHIFT(7),
+  [5] = {.entry = {.count = 1, .reusable = true}}, SHIFT(19),
   [7] = {.entry = {.count = 1, .reusable = true}}, SHIFT(2),
-  [9] = {.entry = {.count = 1, .reusable = true}}, SHIFT(42),
+  [9] = {.entry = {.count = 1, .reusable = true}}, SHIFT(46),
   [11] = {.entry = {.count = 1, .reusable = false}}, SHIFT(10),
   [13] = {.entry = {.count = 1, .reusable = true}}, SHIFT(10),
-  [15] = {.entry = {.count = 1, .reusable = true}}, SHIFT(11),
-  [17] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
-  [19] = {.entry = {.count = 1, .reusable = true}}, SHIFT(37),
-  [21] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_goal, 2),
-  [23] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_goal, 1),
-  [25] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 1),
-  [27] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
-  [29] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_unitLength, 1),
-  [31] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_unitDuration, 1),
-  [33] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),
-  [35] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceAlert, 3),
-  [37] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_alert, 1),
-  [39] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 3),
-  [41] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_heartRateAlert, 1),
-  [43] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 1),
-  [45] = {.entry = {.count = 1, .reusable = true}}, SHIFT(25),
-  [47] = {.entry = {.count = 1, .reusable = true}}, SHIFT(41),
-  [49] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_intervalReps_repeat1, 2),
-  [51] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_intervalReps_repeat1, 2), SHIFT_REPEAT(18),
-  [54] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalReps, 1),
-  [56] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 2, .production_id = 1),
-  [58] = {.entry = {.count = 1, .reusable = true}}, SHIFT(18),
-  [60] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalReps, 2),
-  [62] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2),
-  [64] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
-  [66] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 1),
-  [68] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_warmupStep, 3),
-  [70] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 3),
-  [72] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 5),
-  [74] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 1),
-  [76] = {.entry = {.count = 1, .reusable = true}}, SHIFT(32),
-  [78] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
-  [80] = {.entry = {.count = 1, .reusable = true}}, SHIFT(33),
-  [82] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_cooldownStep, 3),
-  [84] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
-  [86] = {.entry = {.count = 1, .reusable = true}}, SHIFT(31),
-  [88] = {.entry = {.count = 1, .reusable = true}}, SHIFT(17),
-  [90] = {.entry = {.count = 1, .reusable = true}}, SHIFT(39),
-  [92] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 3),
+  [15] = {.entry = {.count = 1, .reusable = false}}, SHIFT(11),
+  [17] = {.entry = {.count = 1, .reusable = true}}, SHIFT(11),
+  [19] = {.entry = {.count = 1, .reusable = true}}, SHIFT(12),
+  [21] = {.entry = {.count = 1, .reusable = false}}, SHIFT(13),
+  [23] = {.entry = {.count = 1, .reusable = true}}, SHIFT(13),
+  [25] = {.entry = {.count = 1, .reusable = false}}, SHIFT(14),
+  [27] = {.entry = {.count = 1, .reusable = true}}, SHIFT(14),
+  [29] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
+  [31] = {.entry = {.count = 1, .reusable = true}}, SHIFT(25),
+  [33] = {.entry = {.count = 1, .reusable = true}}, SHIFT(48),
+  [35] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),
+  [37] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_miles, 1),
+  [39] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_yards, 1),
+  [41] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_feet, 1),
+  [43] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_meter, 1),
+  [45] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_kilometer, 1),
+  [47] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_pace, 3, .production_id = 3),
+  [49] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceThresholdAlert, 1),
+  [51] = {.entry = {.count = 1, .reusable = true}}, SHIFT(38),
+  [53] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 1),
+  [55] = {.entry = {.count = 1, .reusable = true}}, SHIFT(6),
+  [57] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_openGoal, 1),
+  [59] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_distanceGoal, 2, .production_id = 1),
+  [61] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_durationGoal, 2, .production_id = 1),
+  [63] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_alert, 1),
+  [65] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceRangeAlert, 3, .production_id = 4),
+  [67] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 3),
+  [69] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_heartRateAlert, 1),
+  [71] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 1),
+  [73] = {.entry = {.count = 1, .reusable = true}}, SHIFT(31),
+  [75] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_intervalReps_repeat1, 2),
+  [77] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_intervalReps_repeat1, 2), SHIFT_REPEAT(9),
+  [80] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_warmupStep, 3),
+  [82] = {.entry = {.count = 1, .reusable = true}}, SHIFT(47),
+  [84] = {.entry = {.count = 1, .reusable = true}}, SHIFT(9),
+  [86] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalReps, 2),
+  [88] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 2, .production_id = 2),
+  [90] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalReps, 1),
+  [92] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 1),
+  [94] = {.entry = {.count = 1, .reusable = true}}, SHIFT(15),
+  [96] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2),
+  [98] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 3),
+  [100] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 1),
+  [102] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 5),
+  [104] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 3),
+  [106] = {.entry = {.count = 1, .reusable = true}}, SHIFT(41),
+  [108] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_cooldownStep, 3),
+  [110] = {.entry = {.count = 1, .reusable = true}}, SHIFT(39),
+  [112] = {.entry = {.count = 1, .reusable = true}}, SHIFT(8),
+  [114] = {.entry = {.count = 1, .reusable = true}}, SHIFT(28),
+  [116] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
+  [118] = {.entry = {.count = 1, .reusable = true}}, SHIFT(44),
+  [120] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
 };
 
 #ifdef __cplusplus
