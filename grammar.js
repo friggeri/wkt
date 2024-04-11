@@ -79,12 +79,10 @@ module.exports = grammar({
     paceTime: $ => /\d+:\d\d/,
 
     _goal: $ => choice(
-      $.openGoal,
       $.distanceGoal,
       $.durationGoal,
     ),
 
-    openGoal: $ => choice('open', 'run'),
     distanceGoal: $ => seq(field('value', $.number), field('unit', $._unitLength)),
     durationGoal: $ => seq(field('value', $.number), field('unit', $._unitDuration)),
 

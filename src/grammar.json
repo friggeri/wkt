@@ -328,28 +328,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "openGoal"
-        },
-        {
-          "type": "SYMBOL",
           "name": "distanceGoal"
         },
         {
           "type": "SYMBOL",
           "name": "durationGoal"
-        }
-      ]
-    },
-    "openGoal": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "open"
-        },
-        {
-          "type": "STRING",
-          "value": "run"
         }
       ]
     },

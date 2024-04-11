@@ -225,11 +225,6 @@
     "fields": {}
   },
   {
-    "type": "openGoal",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "pace",
     "named": true,
     "fields": {
@@ -369,10 +364,6 @@
         {
           "type": "durationGoal",
           "named": true
-        },
-        {
-          "type": "openGoal",
-          "named": true
         }
       ]
     }
@@ -471,19 +462,11 @@
     "named": true
   },
   {
-    "type": "open",
-    "named": false
-  },
-  {
     "type": "paceTime",
     "named": true
   },
   {
     "type": "recovery",
-    "named": false
-  },
-  {
-    "type": "run",
     "named": false
   },
   {
