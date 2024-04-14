@@ -23,24 +23,19 @@
     }
   },
   {
-    "type": "cooldownStep",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "workoutStep",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "distanceGoal",
     "named": true,
     "fields": {
+      "quantity": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
       "unit": {
         "multiple": false,
         "required": true,
@@ -66,8 +61,14 @@
             "named": true
           }
         ]
-      },
-      "value": {
+      }
+    }
+  },
+  {
+    "type": "durationGoal",
+    "named": true,
+    "fields": {
+      "quantity": {
         "multiple": false,
         "required": true,
         "types": [
@@ -76,13 +77,7 @@
             "named": true
           }
         ]
-      }
-    }
-  },
-  {
-    "type": "durationGoal",
-    "named": true,
-    "fields": {
+      },
       "unit": {
         "multiple": false,
         "required": true,
@@ -97,16 +92,6 @@
           },
           {
             "type": "seconds",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "number",
             "named": true
           }
         ]
@@ -152,24 +137,31 @@
   {
     "type": "intervalBlock",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "intervalReps",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
+    "fields": {
+      "iterations": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "number",
+            "named": true
+          }
+        ]
+      },
+      "step": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "intervalStep",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
-    "type": "intervalReps",
+    "type": "intervalBlocks",
     "named": true,
     "fields": {},
     "children": {
@@ -177,7 +169,7 @@
       "required": true,
       "types": [
         {
-          "type": "intervalStep",
+          "type": "intervalBlock",
           "named": true
         }
       ]
@@ -193,7 +185,7 @@
         "types": [
           {
             "type": "recovery",
-            "named": false
+            "named": true
           }
         ]
       }
@@ -228,17 +220,7 @@
     "type": "pace",
     "named": true,
     "fields": {
-      "duration": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "paceTime",
-            "named": true
-          }
-        ]
-      },
-      "unit": {
+      "distance": {
         "multiple": false,
         "required": true,
         "types": [
@@ -260,6 +242,16 @@
           },
           {
             "type": "yards",
+            "named": true
+          }
+        ]
+      },
+      "duration": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "paceTime",
             "named": true
           }
         ]
@@ -308,41 +300,55 @@
     }
   },
   {
-    "type": "warmupStep",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "workoutStep",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "workout",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "cooldownStep",
-          "named": true
-        },
-        {
-          "type": "intervalBlock",
-          "named": true
-        },
-        {
-          "type": "warmupStep",
-          "named": true
-        }
-      ]
+    "fields": {
+      "cooldown": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "cooldown",
+            "named": false
+          },
+          {
+            "type": "workoutStep",
+            "named": true
+          }
+        ]
+      },
+      "intervalBlocks": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "intervalBlocks",
+            "named": true
+          }
+        ]
+      },
+      "warmup": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "warmup",
+            "named": false
+          },
+          {
+            "type": "workoutStep",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -467,7 +473,7 @@
   },
   {
     "type": "recovery",
-    "named": false
+    "named": true
   },
   {
     "type": "seconds",

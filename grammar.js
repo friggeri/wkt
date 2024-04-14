@@ -1,115 +1,85 @@
 module.exports = grammar({
-  name: 'wkt',
+  name: "wkt",
+  conflicts: ($) => [[$.intervalBlocks]],
   rules: {
-    workout: $ => seq(
-      optional($.warmupStep),
-      $.intervalBlock,
-      optional($.cooldownStep),
-    ),
-
-    warmupStep: $ => seq(
-      $.workoutStep,
-      'warmup',
-      '+'
-    ),
-
-    cooldownStep: $ => seq(
-      '+',
-      $.workoutStep,
-      'cooldown'
-    ),
-
-    intervalBlock: $ => choice(
-      $.intervalReps,
-      seq('(', $.intervalReps, ')'),
+    workout: ($) =>
       seq(
-        $.number, 'x', '(', $.intervalReps, ')'
+        field("warmup", optional($._warmupStep)),
+        field("intervalBlocks", $.intervalBlocks),
+        field("cooldown", optional($._cooldownStep))
       ),
-    ),
 
-    intervalReps: $ => prec.left(2, seq(
-      $.intervalStep,
-      repeat(seq('+', $.intervalStep)),
-    )),
+    _warmupStep: ($) => seq($.workoutStep, "warmup", "+"),
 
-    intervalStep: $ => seq(
-      $.workoutStep,
-      field('purpose', optional('recovery')),
-    ),
+    _cooldownStep: ($) => seq("+", $.workoutStep, "cooldown"),
 
-    workoutStep: $ => seq(
-      $._goal,
-      optional(seq('@', $.alert))
-    ),
+    intervalBlocks: ($) =>
+      prec.dynamic(-1, seq($.intervalBlock, repeat(seq("+", $.intervalBlock)))),
 
-    alert: $ => choice(
-      $.heartRateAlert,
-      $.paceThresholdAlert,
-      $.paceRangeAlert,
-    ),
+    intervalBlock: ($) =>
+      choice(
+        field("step", $.intervalStep),
+        seq(field("iterations", $.number), "x", "(", $._intervalReps, ")")
+      ),
 
-    heartRateAlert: $ => choice(
-      $.z1,
-      $.z2,
-      $.z3,
-      $.z4,
-      $.z5,
-    ),
+    _intervalReps: ($) =>
+      prec.left(
+        2,
+        seq(
+          field("step", $.intervalStep),
+          repeat(seq("+", field("step", $.intervalStep)))
+        )
+      ),
 
-    z1: $ => 'z1',
-    z2: $ => 'z2',
-    z3: $ => 'z3',
-    z4: $ => 'z4',
-    z5: $ => 'z5',
+    intervalStep: ($) =>
+      seq($.workoutStep, field("purpose", optional($.recovery))),
 
-    pace: $ => seq(
-      field("duration", $.paceTime),
-      '/',
-      field("unit", $._unitLength),
-    ),
+    recovery: ($) => "recovery",
 
-    paceThresholdAlert: $ => $.pace,
+    workoutStep: ($) => seq($._goal, optional(seq("@", $.alert))),
 
-    paceRangeAlert: $ => seq(
-      field("lower", $.pace),
-      '-',
-      field("upper", $.pace),
-    ),
+    alert: ($) =>
+      choice($.heartRateAlert, $.paceThresholdAlert, $.paceRangeAlert),
 
-    paceTime: $ => /\d+:\d\d/,
+    heartRateAlert: ($) => choice($.z1, $.z2, $.z3, $.z4, $.z5),
 
-    _goal: $ => choice(
-      $.distanceGoal,
-      $.durationGoal,
-    ),
+    z1: ($) => "z1",
+    z2: ($) => "z2",
+    z3: ($) => "z3",
+    z4: ($) => "z4",
+    z5: ($) => "z5",
 
-    distanceGoal: $ => seq(field('value', $.number), field('unit', $._unitLength)),
-    durationGoal: $ => seq(field('value', $.number), field('unit', $._unitDuration)),
+    pace: ($) =>
+      seq(field("duration", $.paceTime), "/", field("distance", $._unitLength)),
 
-    _unitLength: $ => choice(
-      $.miles,
-      $.yards,
-      $.feet,
-      $.meter,
-      $.kilometer,
-    ),
+    paceThresholdAlert: ($) => $.pace,
 
-    miles: $ => choice('mile', 'miles', 'mi'),
-    yards: $ => choice('yard', 'yards', 'yd'),
-    feet: $ => choice('foot', 'feet', 'ft'),
-    meter: $ => choice('meter', 'meters', 'm'),
-    kilometer: $ => choice('kilometer', 'kilometers', 'km'),
+    paceRangeAlert: ($) =>
+      seq(field("lower", $.pace), "-", field("upper", $.pace)),
 
-    _unitDuration: $ => choice(
-      $.seconds,
-      $.minutes,
-      $.hours,
-    ),
+    paceTime: ($) => /\d+:\d\d/,
 
-    seconds: $ => 'sec',
-    minutes: $ => 'min',
-    hours: $ => 'hr',
+    _goal: ($) => choice($.distanceGoal, $.durationGoal),
 
-    number: $ => /\d+(\.\d+)?/,
-  }
+    distanceGoal: ($) =>
+      seq(field("quantity", $.number), field("unit", $._unitLength)),
+    durationGoal: ($) =>
+      seq(field("quantity", $.number), field("unit", $._unitDuration)),
+
+    _unitLength: ($) => choice($.miles, $.yards, $.feet, $.meter, $.kilometer),
+
+    miles: ($) => choice("mile", "miles", "mi"),
+    yards: ($) => choice("yard", "yards", "yd"),
+    feet: ($) => choice("foot", "feet", "ft"),
+    meter: ($) => choice("meter", "meters", "m"),
+    kilometer: ($) => choice("kilometer", "kilometers", "km"),
+
+    _unitDuration: ($) => choice($.seconds, $.minutes, $.hours),
+
+    seconds: ($) => "sec",
+    minutes: ($) => "min",
+    hours: ($) => "hr",
+
+    number: ($) => /\d+(\.\d+)?/,
+  },
 });

@@ -5,36 +5,48 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "warmupStep"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "FIELD",
+          "name": "warmup",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_warmupStep"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "intervalBlock"
+          "type": "FIELD",
+          "name": "intervalBlocks",
+          "content": {
+            "type": "SYMBOL",
+            "name": "intervalBlocks"
+          }
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "cooldownStep"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "FIELD",
+          "name": "cooldown",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_cooldownStep"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
         }
       ]
     },
-    "warmupStep": {
+    "_warmupStep": {
       "type": "SEQ",
       "members": [
         {
@@ -51,7 +63,7 @@
         }
       ]
     },
-    "cooldownStep": {
+    "_cooldownStep": {
       "type": "SEQ",
       "members": [
         {
@@ -68,66 +80,15 @@
         }
       ]
     },
-    "intervalBlock": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "intervalReps"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "intervalReps"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "number"
-            },
-            {
-              "type": "STRING",
-              "value": "x"
-            },
-            {
-              "type": "STRING",
-              "value": "("
-            },
-            {
-              "type": "SYMBOL",
-              "name": "intervalReps"
-            },
-            {
-              "type": "STRING",
-              "value": ")"
-            }
-          ]
-        }
-      ]
-    },
-    "intervalReps": {
-      "type": "PREC_LEFT",
-      "value": 2,
+    "intervalBlocks": {
+      "type": "PREC_DYNAMIC",
+      "value": -1,
       "content": {
         "type": "SEQ",
         "members": [
           {
             "type": "SYMBOL",
-            "name": "intervalStep"
+            "name": "intervalBlock"
           },
           {
             "type": "REPEAT",
@@ -140,7 +101,86 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "intervalStep"
+                  "name": "intervalBlock"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "intervalBlock": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "step",
+          "content": {
+            "type": "SYMBOL",
+            "name": "intervalStep"
+          }
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "iterations",
+              "content": {
+                "type": "SYMBOL",
+                "name": "number"
+              }
+            },
+            {
+              "type": "STRING",
+              "value": "x"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_intervalReps"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
+        }
+      ]
+    },
+    "_intervalReps": {
+      "type": "PREC_LEFT",
+      "value": 2,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "step",
+            "content": {
+              "type": "SYMBOL",
+              "name": "intervalStep"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "+"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "step",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "intervalStep"
+                  }
                 }
               ]
             }
@@ -162,8 +202,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "recovery"
+                "type": "SYMBOL",
+                "name": "recovery"
               },
               {
                 "type": "BLANK"
@@ -172,6 +212,10 @@
           }
         }
       ]
+    },
+    "recovery": {
+      "type": "STRING",
+      "value": "recovery"
     },
     "workoutStep": {
       "type": "SEQ",
@@ -282,7 +326,7 @@
         },
         {
           "type": "FIELD",
-          "name": "unit",
+          "name": "distance",
           "content": {
             "type": "SYMBOL",
             "name": "_unitLength"
@@ -341,7 +385,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "value",
+          "name": "quantity",
           "content": {
             "type": "SYMBOL",
             "name": "number"
@@ -362,7 +406,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "value",
+          "name": "quantity",
           "content": {
             "type": "SYMBOL",
             "name": "number"
@@ -528,7 +572,11 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "intervalBlocks"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

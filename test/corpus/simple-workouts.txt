@@ -4,8 +4,8 @@ One step
 5 miles
 ---
 (workout
-  (intervalBlock
-    (intervalReps
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
@@ -17,47 +17,47 @@ One step with pace
 1 mile @ 6:30/mi
 ---
 (workout
-  (intervalBlock
-    (intervalReps
-      (intervalStep
+  intervalBlocks: (intervalBlocks
+    (intervalBlock
+      step: (intervalStep
         (workoutStep
           (distanceGoal
-            value: (number)
+            quantity: (number)
             unit: (miles))
           (alert
             (paceThresholdAlert
               (pace
                 duration: (paceTime)
-                unit: (miles)))))))))
+                distance: (miles)))))))))
 ===
 One step with pace range
 ===
 1 mile @ 6:30/mi - 7:30/mi
 ---
 (workout
-  (intervalBlock
-    (intervalReps
-      (intervalStep
+  intervalBlocks: (intervalBlocks
+    (intervalBlock
+      step: (intervalStep
         (workoutStep
           (distanceGoal
-            value: (number)
+            quantity: (number)
             unit: (miles))
           (alert
             (paceRangeAlert
               lower: (pace
                 duration: (paceTime)
-                unit: (miles))
+                distance: (miles))
               upper: (pace
                 duration: (paceTime)
-                unit: (miles)))))))))
+                distance: (miles)))))))))
 ===
 One step with heart rate zone
 ===
 2 miles @ z4
 ---
 (workout
-  (intervalBlock
-    (intervalReps
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
@@ -72,26 +72,26 @@ One step with recovery
 5 miles recovery
 ---
 (workout
-  (intervalBlock
-    (intervalReps
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
             (number)
-            (miles)))))))
+            (miles)))
+          (recovery)))))
 ===
 One step with warmup
 ===
 1 mile warmup + 5 miles
 ---
 (workout
-  (warmupStep
-    (workoutStep
-      (distanceGoal
-        (number)
-        (miles))))
-  (intervalBlock
-    (intervalReps
+  (workoutStep
+    (distanceGoal
+      (number)
+      (miles)))
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
@@ -103,38 +103,35 @@ One step with cooldown
 5 miles + 1 mile cooldown
 ---
 (workout
-  (intervalBlock
-    (intervalReps
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
             (number)
             (miles))))))
-  (cooldownStep
-    (workoutStep
-      (distanceGoal
-        (number)
-        (miles)))))
+  (workoutStep
+    (distanceGoal
+      (number)
+      (miles))))
 ===
 One step with warmup and cooldown
 ===
 1 mile warmup + 5 miles  + 2 miles cooldown
 ---
 (workout
-  (warmupStep
-    (workoutStep
-      (distanceGoal
-        (number)
-        (miles))))
-  (intervalBlock
-    (intervalReps
+  (workoutStep
+    (distanceGoal
+      (number)
+      (miles)))
+  (intervalBlocks
+    (intervalBlock
       (intervalStep
         (workoutStep
           (distanceGoal
             (number)
             (miles))))))
-  (cooldownStep
-    (workoutStep
-      (distanceGoal
-        (number)
-        (miles)))))
+  (workoutStep
+    (distanceGoal
+      (number)
+      (miles))))
