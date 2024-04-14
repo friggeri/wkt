@@ -161,21 +161,6 @@
     }
   },
   {
-    "type": "intervalBlocks",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "intervalBlock",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "intervalStep",
     "named": true,
     "fields": {
@@ -313,12 +298,16 @@
           }
         ]
       },
-      "intervalBlocks": {
-        "multiple": false,
+      "intervalBlock": {
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "intervalBlocks",
+            "type": "+",
+            "named": false
+          },
+          {
+            "type": "intervalBlock",
             "named": true
           }
         ]

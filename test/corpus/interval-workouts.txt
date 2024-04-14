@@ -4,72 +4,69 @@ Interval
 5x(0.25 miles + 1 min recovery)
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (number)
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))))
-      (intervalStep
-        (workoutStep
-          (durationGoal
-            (number)
-            (minutes)))
-        (recovery)))))
+  (intervalBlock
+    (number)
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))))
+    (intervalStep
+      (workoutStep
+        (durationGoal
+          (number)
+          (minutes)))
+      (recovery))))
 ===
 Interval with pace
 ===
 5x(0.25 miles @ 6:30/mi + 0.75 miles @ 9:00/mi)
 ---
 (workout
-  intervalBlocks: (intervalBlocks
-    (intervalBlock
-      iterations: (number)
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles))
-          (alert
-            (paceThresholdAlert
-                (pace
-                  duration: (paceTime)
-                  distance: (miles))))))
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles))
-          (alert
-            (paceThresholdAlert
+  intervalBlock: (intervalBlock
+    iterations: (number)
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles))
+        (alert
+          (paceThresholdAlert
               (pace
                 duration: (paceTime)
-                distance: (miles)))))))))
+                distance: (miles))))))
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles))
+        (alert
+          (paceThresholdAlert
+            (pace
+              duration: (paceTime)
+              distance: (miles))))))))
 ===
 Interval with heart rate zone
 ===
 5x(0.25 miles @ z5 + 0.75 miles recovery)
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (number)
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))
-          (alert
-            (heartRateAlert
-              (z5)))))
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles)))
-          (recovery)))))
+  (intervalBlock
+    (number)
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))
+        (alert
+          (heartRateAlert
+            (z5)))))
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles)))
+        (recovery))))
 ===
 Interval with warmup
 ===
@@ -80,48 +77,46 @@ Interval with warmup
     (distanceGoal
       (number)
       (miles)))
-  (intervalBlocks
-    (intervalBlock
-      (number)
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (meter))
-          (alert
-            (heartRateAlert
-              (z5)))))
-      (intervalStep
-        (workoutStep
-          (durationGoal
-            (number)
-            (minutes)))
-          (recovery)))))
+  (intervalBlock
+    (number)
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (meter))
+        (alert
+          (heartRateAlert
+            (z5)))))
+    (intervalStep
+      (workoutStep
+        (durationGoal
+          (number)
+          (minutes)))
+        (recovery))))
 ===
 Interval with cooldown
 ===
 5x(100m @ 6:00/mi + 2 min recovery)  + 1 mile cooldown
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (number)
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (meter))
-          (alert
-            (paceThresholdAlert
-              (pace
-                (paceTime)
-                (miles))))))
-      (intervalStep
-        (workoutStep
-          (durationGoal
-            (number)
-            (minutes)))
-          (recovery))))
+  (intervalBlock
+    (number)
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (meter))
+        (alert
+          (paceThresholdAlert
+            (pace
+              (paceTime)
+              (miles))))))
+    (intervalStep
+      (workoutStep
+        (durationGoal
+          (number)
+          (minutes)))
+        (recovery)))
   (workoutStep
     (distanceGoal
       (number)
@@ -136,20 +131,19 @@ Interval step with warmup and cooldown
     (distanceGoal
       (number)
       (miles)))
-  (intervalBlocks
-    (intervalBlock
-      (number)
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))))
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles)))
-          (recovery))))
+  (intervalBlock
+    (number)
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))))
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles)))
+        (recovery)))
   (workoutStep
     (distanceGoal
       (number)
@@ -168,40 +162,39 @@ Interval with multiple steps and warmup and cooldown
     (alert
       (heartRateAlert
         (z2))))
-  intervalBlocks: (intervalBlocks
-    (intervalBlock
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles)))))
-    (intervalBlock
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles)))
-        purpose: (recovery)))
-    (intervalBlock
-      iterations: (number)
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles)))))
-    (intervalBlock
-      iterations: (number)
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles))))
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles)))
-        purpose: (recovery))))
+  intervalBlock: (intervalBlock
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles)))))
+  intervalBlock: (intervalBlock
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles)))
+      purpose: (recovery)))
+  intervalBlock: (intervalBlock
+    iterations: (number)
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles)))))
+  intervalBlock: (intervalBlock
+    iterations: (number)
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles))))
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles)))
+      purpose: (recovery)))
   cooldown: (workoutStep
     (distanceGoal
       quantity: (number)

@@ -54,7 +54,7 @@ enum ts_symbol_identifiers {
   sym_workout = 36,
   sym__warmupStep = 37,
   sym__cooldownStep = 38,
-  sym_intervalBlocks = 39,
+  sym__intervalBlocks = 39,
   sym_intervalBlock = 40,
   sym__intervalReps = 41,
   sym_intervalStep = 42,
@@ -74,7 +74,7 @@ enum ts_symbol_identifiers {
   sym_meter = 56,
   sym_kilometer = 57,
   sym__unitDuration = 58,
-  aux_sym_intervalBlocks_repeat1 = 59,
+  aux_sym__intervalBlocks_repeat1 = 59,
   aux_sym__intervalReps_repeat1 = 60,
 };
 
@@ -118,7 +118,7 @@ static const char * const ts_symbol_names[] = {
   [sym_workout] = "workout",
   [sym__warmupStep] = "_warmupStep",
   [sym__cooldownStep] = "_cooldownStep",
-  [sym_intervalBlocks] = "intervalBlocks",
+  [sym__intervalBlocks] = "_intervalBlocks",
   [sym_intervalBlock] = "intervalBlock",
   [sym__intervalReps] = "_intervalReps",
   [sym_intervalStep] = "intervalStep",
@@ -138,7 +138,7 @@ static const char * const ts_symbol_names[] = {
   [sym_meter] = "meter",
   [sym_kilometer] = "kilometer",
   [sym__unitDuration] = "_unitDuration",
-  [aux_sym_intervalBlocks_repeat1] = "intervalBlocks_repeat1",
+  [aux_sym__intervalBlocks_repeat1] = "_intervalBlocks_repeat1",
   [aux_sym__intervalReps_repeat1] = "_intervalReps_repeat1",
 };
 
@@ -182,7 +182,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_workout] = sym_workout,
   [sym__warmupStep] = sym__warmupStep,
   [sym__cooldownStep] = sym__cooldownStep,
-  [sym_intervalBlocks] = sym_intervalBlocks,
+  [sym__intervalBlocks] = sym__intervalBlocks,
   [sym_intervalBlock] = sym_intervalBlock,
   [sym__intervalReps] = sym__intervalReps,
   [sym_intervalStep] = sym_intervalStep,
@@ -202,7 +202,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_meter] = sym_meter,
   [sym_kilometer] = sym_kilometer,
   [sym__unitDuration] = sym__unitDuration,
-  [aux_sym_intervalBlocks_repeat1] = aux_sym_intervalBlocks_repeat1,
+  [aux_sym__intervalBlocks_repeat1] = aux_sym__intervalBlocks_repeat1,
   [aux_sym__intervalReps_repeat1] = aux_sym__intervalReps_repeat1,
 };
 
@@ -363,8 +363,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [sym_intervalBlocks] = {
-    .visible = true,
+  [sym__intervalBlocks] = {
+    .visible = false,
     .named = true,
   },
   [sym_intervalBlock] = {
@@ -443,7 +443,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [aux_sym_intervalBlocks_repeat1] = {
+  [aux_sym__intervalBlocks_repeat1] = {
     .visible = false,
     .named = false,
   },
@@ -457,7 +457,7 @@ enum ts_field_identifiers {
   field_cooldown = 1,
   field_distance = 2,
   field_duration = 3,
-  field_intervalBlocks = 4,
+  field_intervalBlock = 4,
   field_intervalStep = 5,
   field_iterations = 6,
   field_lowerBound = 7,
@@ -473,7 +473,7 @@ static const char * const ts_field_names[] = {
   [field_cooldown] = "cooldown",
   [field_distance] = "distance",
   [field_duration] = "duration",
-  [field_intervalBlocks] = "intervalBlocks",
+  [field_intervalBlock] = "intervalBlock",
   [field_intervalStep] = "intervalStep",
   [field_iterations] = "iterations",
   [field_lowerBound] = "lowerBound",
@@ -504,23 +504,23 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
-    {field_intervalBlocks, 0},
+    {field_intervalBlock, 0},
   [1] =
     {field_intervalStep, 0},
   [2] =
     {field_quantity, 0},
     {field_unit, 1},
   [4] =
-    {field_intervalBlocks, 1},
+    {field_intervalBlock, 1},
     {field_warmup, 0, .inherited = true},
   [6] =
     {field_cooldown, 1, .inherited = true},
-    {field_intervalBlocks, 0},
+    {field_intervalBlock, 0},
   [8] =
     {field_purpose, 1},
   [9] =
     {field_cooldown, 2, .inherited = true},
-    {field_intervalBlocks, 1},
+    {field_intervalBlock, 1},
     {field_warmup, 0, .inherited = true},
   [12] =
     {field_warmup, 0},
@@ -1024,7 +1024,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [1] = {
     [sym_workout] = STATE(42),
     [sym__warmupStep] = STATE(6),
-    [sym_intervalBlocks] = STATE(31),
+    [sym__intervalBlocks] = STATE(31),
     [sym_intervalBlock] = STATE(34),
     [sym_intervalStep] = STATE(36),
     [sym_workoutStep] = STATE(26),
@@ -1169,7 +1169,7 @@ static const uint16_t ts_small_parse_table[] = {
     STATE(25), 1,
       sym_workoutStep,
     STATE(27), 1,
-      sym_intervalBlocks,
+      sym__intervalBlocks,
     STATE(34), 1,
       sym_intervalBlock,
     STATE(36), 1,
@@ -1393,7 +1393,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(84), 1,
       anon_sym_PLUS,
     STATE(33), 1,
-      aux_sym_intervalBlocks_repeat1,
+      aux_sym__intervalBlocks_repeat1,
   [452] = 3,
     ACTIONS(73), 1,
       anon_sym_PLUS,
@@ -1414,14 +1414,14 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(95), 1,
       anon_sym_PLUS,
     STATE(33), 1,
-      aux_sym_intervalBlocks_repeat1,
+      aux_sym__intervalBlocks_repeat1,
   [482] = 3,
     ACTIONS(98), 1,
       ts_builtin_sym_end,
     ACTIONS(100), 1,
       anon_sym_PLUS,
     STATE(30), 1,
-      aux_sym_intervalBlocks_repeat1,
+      aux_sym__intervalBlocks_repeat1,
   [492] = 3,
     ACTIONS(89), 1,
       anon_sym_PLUS,
@@ -1576,15 +1576,15 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [75] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 2, .production_id = 6),
   [77] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 15), SHIFT_REPEAT(21),
   [80] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 15),
-  [82] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlocks, 2, .dynamic_precedence = -1),
-  [84] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym_intervalBlocks, 2, .dynamic_precedence = -1), SHIFT(12),
+  [82] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1),
+  [84] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1), SHIFT(12),
   [87] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 1, .production_id = 1),
   [89] = {.entry = {.count = 1, .reusable = true}}, SHIFT(21),
   [91] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 2, .production_id = 11),
-  [93] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_intervalBlocks_repeat1, 2),
-  [95] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_intervalBlocks_repeat1, 2), SHIFT_REPEAT(12),
-  [98] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlocks, 1, .dynamic_precedence = -1),
-  [100] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym_intervalBlocks, 1, .dynamic_precedence = -1), SHIFT(12),
+  [93] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2),
+  [95] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2), SHIFT_REPEAT(12),
+  [98] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1),
+  [100] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1), SHIFT(12),
   [103] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 1, .production_id = 2),
   [105] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 1, .production_id = 2),
   [107] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 5, .production_id = 10),

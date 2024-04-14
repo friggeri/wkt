@@ -18,10 +18,10 @@
         },
         {
           "type": "FIELD",
-          "name": "intervalBlocks",
+          "name": "intervalBlock",
           "content": {
             "type": "SYMBOL",
-            "name": "intervalBlocks"
+            "name": "_intervalBlocks"
           }
         },
         {
@@ -80,7 +80,7 @@
         }
       ]
     },
-    "intervalBlocks": {
+    "_intervalBlocks": {
       "type": "PREC_DYNAMIC",
       "value": -1,
       "content": {
@@ -574,7 +574,7 @@
   ],
   "conflicts": [
     [
-      "intervalBlocks"
+      "_intervalBlocks"
     ]
   ],
   "precedences": [],

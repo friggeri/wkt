@@ -4,82 +4,77 @@ One step
 5 miles
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles)))))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))))))
 ===
 One step with pace
 ===
 1 mile @ 6:30/mi
 ---
 (workout
-  intervalBlocks: (intervalBlocks
-    (intervalBlock
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles))
-          (alert
-            (paceThresholdAlert
-              (pace
-                duration: (paceTime)
-                distance: (miles)))))))))
+  intervalBlock: (intervalBlock
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles))
+        (alert
+          (paceThresholdAlert
+            (pace
+              duration: (paceTime)
+              distance: (miles))))))))
 ===
 One step with pace range
 ===
 1 mile @ 6:30/mi - 7:30/mi
 ---
 (workout
-  intervalBlocks: (intervalBlocks
-    (intervalBlock
-      intervalStep: (intervalStep
-        (workoutStep
-          (distanceGoal
-            quantity: (number)
-            unit: (miles))
-          (alert
-            (paceRangeAlert
-              lowerBound: (pace
-                duration: (paceTime)
-                distance: (miles))
-              upperBound: (pace
-                duration: (paceTime)
-                distance: (miles)))))))))
+  intervalBlock: (intervalBlock
+    intervalStep: (intervalStep
+      (workoutStep
+        (distanceGoal
+          quantity: (number)
+          unit: (miles))
+        (alert
+          (paceRangeAlert
+            lowerBound: (pace
+              duration: (paceTime)
+              distance: (miles))
+            upperBound: (pace
+              duration: (paceTime)
+              distance: (miles))))))))
 ===
 One step with heart rate zone
 ===
 2 miles @ z4
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))
-          (alert
-            (heartRateAlert
-              (z4))))))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))
+        (alert
+          (heartRateAlert
+            (z4)))))))
 ===
 One step with recovery
 ===
 5 miles recovery
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles)))
-          (recovery)))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles)))
+        (recovery))))
 ===
 One step with warmup
 ===
@@ -90,26 +85,24 @@ One step with warmup
     (distanceGoal
       (number)
       (miles)))
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles)))))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles))))))
 ===
 One step with cooldown
 ===
 5 miles + 1 mile cooldown
 ---
 (workout
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles)))))
   (workoutStep
     (distanceGoal
       (number)
@@ -124,13 +117,12 @@ One step with warmup and cooldown
     (distanceGoal
       (number)
       (miles)))
-  (intervalBlocks
-    (intervalBlock
-      (intervalStep
-        (workoutStep
-          (distanceGoal
-            (number)
-            (miles))))))
+  (intervalBlock
+    (intervalStep
+      (workoutStep
+        (distanceGoal
+          (number)
+          (miles)))))
   (workoutStep
     (distanceGoal
       (number)

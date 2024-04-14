@@ -1,11 +1,11 @@
 module.exports = grammar({
   name: "wkt",
-  conflicts: ($) => [[$.intervalBlocks]],
+  conflicts: ($) => [[$._intervalBlocks]],
   rules: {
     workout: ($) =>
       seq(
         optional($._warmupStep),
-        field("intervalBlocks", $.intervalBlocks),
+        field("intervalBlock", $._intervalBlocks),
         optional($._cooldownStep)
       ),
 
@@ -14,7 +14,7 @@ module.exports = grammar({
     _cooldownStep: ($) =>
       seq("+", field("cooldown", $.workoutStep), "cooldown"),
 
-    intervalBlocks: ($) =>
+    _intervalBlocks: ($) =>
       prec.dynamic(-1, seq($.intervalBlock, repeat(seq("+", $.intervalBlock)))),
 
     intervalBlock: ($) =>
