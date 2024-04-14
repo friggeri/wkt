@@ -138,22 +138,22 @@
     "type": "intervalBlock",
     "named": true,
     "fields": {
+      "intervalStep": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "intervalStep",
+            "named": true
+          }
+        ]
+      },
       "iterations": {
         "multiple": false,
         "required": false,
         "types": [
           {
             "type": "number",
-            "named": true
-          }
-        ]
-      },
-      "step": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "intervalStep",
             "named": true
           }
         ]
@@ -262,7 +262,7 @@
     "type": "paceRangeAlert",
     "named": true,
     "fields": {
-      "lower": {
+      "lowerBound": {
         "multiple": false,
         "required": true,
         "types": [
@@ -272,7 +272,7 @@
           }
         ]
       },
-      "upper": {
+      "upperBound": {
         "multiple": false,
         "required": true,
         "types": [
@@ -304,17 +304,9 @@
     "named": true,
     "fields": {
       "cooldown": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "cooldown",
-            "named": false
-          },
           {
             "type": "workoutStep",
             "named": true
@@ -332,17 +324,9 @@
         ]
       },
       "warmup": {
-        "multiple": true,
+        "multiple": false,
         "required": false,
         "types": [
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "warmup",
-            "named": false
-          },
           {
             "type": "workoutStep",
             "named": true

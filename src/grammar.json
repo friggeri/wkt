@@ -5,20 +5,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "FIELD",
-          "name": "warmup",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_warmupStep"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_warmupStep"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "FIELD",
@@ -29,20 +25,16 @@
           }
         },
         {
-          "type": "FIELD",
-          "name": "cooldown",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "_cooldownStep"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_cooldownStep"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -50,8 +42,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "workoutStep"
+          "type": "FIELD",
+          "name": "warmup",
+          "content": {
+            "type": "SYMBOL",
+            "name": "workoutStep"
+          }
         },
         {
           "type": "STRING",
@@ -71,8 +67,12 @@
           "value": "+"
         },
         {
-          "type": "SYMBOL",
-          "name": "workoutStep"
+          "type": "FIELD",
+          "name": "cooldown",
+          "content": {
+            "type": "SYMBOL",
+            "name": "workoutStep"
+          }
         },
         {
           "type": "STRING",
@@ -114,7 +114,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "step",
+          "name": "intervalStep",
           "content": {
             "type": "SYMBOL",
             "name": "intervalStep"
@@ -159,7 +159,7 @@
         "members": [
           {
             "type": "FIELD",
-            "name": "step",
+            "name": "intervalStep",
             "content": {
               "type": "SYMBOL",
               "name": "intervalStep"
@@ -176,7 +176,7 @@
                 },
                 {
                   "type": "FIELD",
-                  "name": "step",
+                  "name": "intervalStep",
                   "content": {
                     "type": "SYMBOL",
                     "name": "intervalStep"
@@ -343,7 +343,7 @@
       "members": [
         {
           "type": "FIELD",
-          "name": "lower",
+          "name": "lowerBound",
           "content": {
             "type": "SYMBOL",
             "name": "pace"
@@ -355,7 +355,7 @@
         },
         {
           "type": "FIELD",
-          "name": "upper",
+          "name": "upperBound",
           "content": {
             "type": "SYMBOL",
             "name": "pace"

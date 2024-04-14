@@ -27,7 +27,7 @@ Interval with pace
   intervalBlocks: (intervalBlocks
     (intervalBlock
       iterations: (number)
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
@@ -37,7 +37,7 @@ Interval with pace
                 (pace
                   duration: (paceTime)
                   distance: (miles))))))
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
@@ -170,13 +170,13 @@ Interval with multiple steps and warmup and cooldown
         (z2))))
   intervalBlocks: (intervalBlocks
     (intervalBlock
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
             unit: (miles)))))
     (intervalBlock
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
@@ -184,19 +184,19 @@ Interval with multiple steps and warmup and cooldown
         purpose: (recovery)))
     (intervalBlock
       iterations: (number)
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
             unit: (miles)))))
     (intervalBlock
       iterations: (number)
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
             unit: (miles))))
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)

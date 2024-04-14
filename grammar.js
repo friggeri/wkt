@@ -4,21 +4,22 @@ module.exports = grammar({
   rules: {
     workout: ($) =>
       seq(
-        field("warmup", optional($._warmupStep)),
+        optional($._warmupStep),
         field("intervalBlocks", $.intervalBlocks),
-        field("cooldown", optional($._cooldownStep))
+        optional($._cooldownStep)
       ),
 
-    _warmupStep: ($) => seq($.workoutStep, "warmup", "+"),
+    _warmupStep: ($) => seq(field("warmup", $.workoutStep), "warmup", "+"),
 
-    _cooldownStep: ($) => seq("+", $.workoutStep, "cooldown"),
+    _cooldownStep: ($) =>
+      seq("+", field("cooldown", $.workoutStep), "cooldown"),
 
     intervalBlocks: ($) =>
       prec.dynamic(-1, seq($.intervalBlock, repeat(seq("+", $.intervalBlock)))),
 
     intervalBlock: ($) =>
       choice(
-        field("step", $.intervalStep),
+        field("intervalStep", $.intervalStep),
         seq(field("iterations", $.number), "x", "(", $._intervalReps, ")")
       ),
 
@@ -26,8 +27,8 @@ module.exports = grammar({
       prec.left(
         2,
         seq(
-          field("step", $.intervalStep),
-          repeat(seq("+", field("step", $.intervalStep)))
+          field("intervalStep", $.intervalStep),
+          repeat(seq("+", field("intervalStep", $.intervalStep)))
         )
       ),
 
@@ -55,7 +56,7 @@ module.exports = grammar({
     paceThresholdAlert: ($) => $.pace,
 
     paceRangeAlert: ($) =>
-      seq(field("lower", $.pace), "-", field("upper", $.pace)),
+      seq(field("lowerBound", $.pace), "-", field("upperBound", $.pace)),
 
     paceTime: ($) => /\d+:\d\d/,
 

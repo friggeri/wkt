@@ -19,7 +19,7 @@ One step with pace
 (workout
   intervalBlocks: (intervalBlocks
     (intervalBlock
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
@@ -37,17 +37,17 @@ One step with pace range
 (workout
   intervalBlocks: (intervalBlocks
     (intervalBlock
-      step: (intervalStep
+      intervalStep: (intervalStep
         (workoutStep
           (distanceGoal
             quantity: (number)
             unit: (miles))
           (alert
             (paceRangeAlert
-              lower: (pace
+              lowerBound: (pace
                 duration: (paceTime)
                 distance: (miles))
-              upper: (pace
+              upperBound: (pace
                 duration: (paceTime)
                 distance: (miles)))))))))
 ===
