@@ -221,8 +221,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_goal"
+          "type": "FIELD",
+          "name": "goal",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_goal"
+          }
         },
         {
           "type": "CHOICE",
@@ -235,8 +239,12 @@
                   "value": "@"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "alert"
+                  "type": "FIELD",
+                  "name": "alert",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_alert"
+                  }
                 }
               ]
             },
@@ -247,7 +255,7 @@
         }
       ]
     },
-    "alert": {
+    "_alert": {
       "type": "CHOICE",
       "members": [
         {

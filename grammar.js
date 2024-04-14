@@ -37,9 +37,10 @@ module.exports = grammar({
 
     recovery: ($) => "recovery",
 
-    workoutStep: ($) => seq($._goal, optional(seq("@", $.alert))),
+    workoutStep: ($) =>
+      seq(field("goal", $._goal), optional(seq("@", field("alert", $._alert)))),
 
-    alert: ($) =>
+    _alert: ($) =>
       choice($.heartRateAlert, $.paceThresholdAlert, $.paceRangeAlert),
 
     heartRateAlert: ($) => choice($.z1, $.z2, $.z3, $.z4, $.z5),

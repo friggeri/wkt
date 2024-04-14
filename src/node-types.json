@@ -1,28 +1,5 @@
 [
   {
-    "type": "alert",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "heartRateAlert",
-          "named": true
-        },
-        {
-          "type": "paceRangeAlert",
-          "named": true
-        },
-        {
-          "type": "paceThresholdAlert",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "distanceGoal",
     "named": true,
     "fields": {
@@ -327,24 +304,39 @@
   {
     "type": "workoutStep",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "alert",
-          "named": true
-        },
-        {
-          "type": "distanceGoal",
-          "named": true
-        },
-        {
-          "type": "durationGoal",
-          "named": true
-        }
-      ]
+    "fields": {
+      "alert": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "heartRateAlert",
+            "named": true
+          },
+          {
+            "type": "paceRangeAlert",
+            "named": true
+          },
+          {
+            "type": "paceThresholdAlert",
+            "named": true
+          }
+        ]
+      },
+      "goal": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "distanceGoal",
+            "named": true
+          },
+          {
+            "type": "durationGoal",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

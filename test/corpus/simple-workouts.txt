@@ -19,14 +19,13 @@ One step with pace
   intervalBlock: (intervalBlock
     intervalStep: (intervalStep
       (workoutStep
-        (distanceGoal
+        goal: (distanceGoal
           quantity: (number)
           unit: (miles))
-        (alert
-          (paceThresholdAlert
-            (pace
-              duration: (paceTime)
-              distance: (miles))))))))
+        alert: (paceThresholdAlert
+          (pace
+            duration: (paceTime)
+            distance: (miles)))))))
 ===
 One step with pace range
 ===
@@ -36,17 +35,16 @@ One step with pace range
   intervalBlock: (intervalBlock
     intervalStep: (intervalStep
       (workoutStep
-        (distanceGoal
+        goal: (distanceGoal
           quantity: (number)
           unit: (miles))
-        (alert
-          (paceRangeAlert
-            lowerBound: (pace
-              duration: (paceTime)
-              distance: (miles))
-            upperBound: (pace
-              duration: (paceTime)
-              distance: (miles))))))))
+        alert: (paceRangeAlert
+          lowerBound: (pace
+            duration: (paceTime)
+            distance: (miles))
+          upperBound: (pace
+            duration: (paceTime)
+            distance: (miles)))))))
 ===
 One step with heart rate zone
 ===
@@ -59,9 +57,8 @@ One step with heart rate zone
         (distanceGoal
           (number)
           (miles))
-        (alert
-          (heartRateAlert
-            (z4)))))))
+        (heartRateAlert
+          (z4))))))
 ===
 One step with recovery
 ===
