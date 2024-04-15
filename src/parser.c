@@ -13,7 +13,7 @@
 #define EXTERNAL_TOKEN_COUNT 0
 #define FIELD_COUNT 14
 #define MAX_ALIAS_SEQUENCE_LENGTH 5
-#define PRODUCTION_ID_COUNT 18
+#define PRODUCTION_ID_COUNT 22
 
 enum ts_symbol_identifiers {
   anon_sym_warmup = 1,
@@ -492,66 +492,80 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [1] = {.index = 0, .length = 1},
   [2] = {.index = 1, .length = 1},
   [3] = {.index = 2, .length = 1},
-  [4] = {.index = 3, .length = 2},
-  [5] = {.index = 5, .length = 2},
-  [6] = {.index = 7, .length = 2},
-  [7] = {.index = 9, .length = 1},
-  [8] = {.index = 10, .length = 3},
-  [9] = {.index = 13, .length = 1},
-  [10] = {.index = 14, .length = 2},
+  [4] = {.index = 3, .length = 1},
+  [5] = {.index = 4, .length = 2},
+  [6] = {.index = 6, .length = 2},
+  [7] = {.index = 8, .length = 2},
+  [8] = {.index = 10, .length = 2},
+  [9] = {.index = 12, .length = 1},
+  [10] = {.index = 13, .length = 3},
   [11] = {.index = 16, .length = 1},
   [12] = {.index = 17, .length = 2},
-  [13] = {.index = 19, .length = 2},
-  [14] = {.index = 21, .length = 2},
-  [15] = {.index = 23, .length = 2},
-  [16] = {.index = 25, .length = 1},
-  [17] = {.index = 26, .length = 2},
+  [13] = {.index = 19, .length = 1},
+  [14] = {.index = 20, .length = 2},
+  [15] = {.index = 22, .length = 1},
+  [16] = {.index = 23, .length = 2},
+  [17] = {.index = 25, .length = 2},
+  [18] = {.index = 27, .length = 2},
+  [19] = {.index = 29, .length = 2},
+  [20] = {.index = 31, .length = 1},
+  [21] = {.index = 32, .length = 2},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
-    {field_intervalBlock, 0},
+    {field_intervalBlock, 0, .inherited = true},
   [1] =
-    {field_intervalStep, 0},
+    {field_intervalBlock, 0},
   [2] =
-    {field_goal, 0},
+    {field_intervalStep, 0},
   [3] =
+    {field_goal, 0},
+  [4] =
     {field_quantity, 0},
     {field_unit, 1},
-  [5] =
-    {field_intervalBlock, 1},
+  [6] =
+    {field_intervalBlock, 1, .inherited = true},
     {field_warmup, 0, .inherited = true},
-  [7] =
+  [8] =
     {field_cooldown, 1, .inherited = true},
-    {field_intervalBlock, 0},
-  [9] =
-    {field_purpose, 1},
+    {field_intervalBlock, 0, .inherited = true},
   [10] =
-    {field_cooldown, 2, .inherited = true},
-    {field_intervalBlock, 1},
-    {field_warmup, 0, .inherited = true},
+    {field_intervalBlock, 0},
+    {field_intervalBlock, 1, .inherited = true},
+  [12] =
+    {field_purpose, 1},
   [13] =
+    {field_cooldown, 2, .inherited = true},
+    {field_intervalBlock, 1, .inherited = true},
+    {field_warmup, 0, .inherited = true},
+  [16] =
+    {field_intervalBlock, 1},
+  [17] =
+    {field_intervalBlock, 0, .inherited = true},
+    {field_intervalBlock, 1, .inherited = true},
+  [19] =
     {field_warmup, 0},
-  [14] =
+  [20] =
     {field_alert, 2},
     {field_goal, 0},
-  [16] =
+  [22] =
     {field_cooldown, 1},
-  [17] =
+  [23] =
     {field_intervalStep, 3, .inherited = true},
     {field_iterations, 0},
-  [19] =
+  [25] =
     {field_intervalStep, 0},
     {field_intervalStep, 1, .inherited = true},
-  [21] =
+  [27] =
     {field_distance, 2},
     {field_duration, 0},
-  [23] =
+  [29] =
     {field_lowerBound, 0},
     {field_upperBound, 2},
-  [25] =
+  [31] =
     {field_intervalStep, 1},
-  [26] =
+  [32] =
     {field_intervalStep, 0, .inherited = true},
     {field_intervalStep, 1, .inherited = true},
 };
@@ -1443,42 +1457,42 @@ static const uint16_t ts_small_parse_table[] = {
       ts_builtin_sym_end,
       anon_sym_PLUS,
   [508] = 1,
-    ACTIONS(96), 2,
+    ACTIONS(107), 2,
       ts_builtin_sym_end,
       anon_sym_PLUS,
   [513] = 1,
-    ACTIONS(107), 2,
+    ACTIONS(109), 2,
       anon_sym_PLUS,
       anon_sym_RPAREN,
   [518] = 1,
-    ACTIONS(109), 1,
+    ACTIONS(111), 1,
       anon_sym_SLASH,
   [522] = 1,
-    ACTIONS(111), 1,
+    ACTIONS(113), 1,
       ts_builtin_sym_end,
   [526] = 1,
-    ACTIONS(113), 1,
+    ACTIONS(115), 1,
       anon_sym_RPAREN,
   [530] = 1,
-    ACTIONS(115), 1,
-      ts_builtin_sym_end,
-  [534] = 1,
     ACTIONS(117), 1,
       ts_builtin_sym_end,
-  [538] = 1,
+  [534] = 1,
     ACTIONS(119), 1,
+      ts_builtin_sym_end,
+  [538] = 1,
+    ACTIONS(121), 1,
       sym_number,
   [542] = 1,
-    ACTIONS(121), 1,
+    ACTIONS(123), 1,
       anon_sym_PLUS,
   [546] = 1,
-    ACTIONS(123), 1,
+    ACTIONS(125), 1,
       anon_sym_cooldown,
   [550] = 1,
-    ACTIONS(125), 1,
+    ACTIONS(127), 1,
       anon_sym_LPAREN,
   [554] = 1,
-    ACTIONS(127), 1,
+    ACTIONS(129), 1,
       ts_builtin_sym_end,
 };
 
@@ -1555,48 +1569,49 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [35] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_feet, 1),
   [37] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_meter, 1),
   [39] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_kilometer, 1),
-  [41] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_pace, 3, .production_id = 14),
+  [41] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_pace, 3, .production_id = 18),
   [43] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceThresholdAlert, 1),
   [45] = {.entry = {.count = 1, .reusable = true}}, SHIFT(36),
-  [47] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 1, .production_id = 3),
+  [47] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 1, .production_id = 4),
   [49] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
   [51] = {.entry = {.count = 1, .reusable = true}}, SHIFT(3),
-  [53] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_distanceGoal, 2, .production_id = 4),
-  [55] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_durationGoal, 2, .production_id = 4),
-  [57] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 3, .production_id = 10),
+  [53] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_distanceGoal, 2, .production_id = 5),
+  [55] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_durationGoal, 2, .production_id = 5),
+  [57] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workoutStep, 3, .production_id = 14),
   [59] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_heartRateAlert, 1),
-  [61] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceRangeAlert, 3, .production_id = 15),
+  [61] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_paceRangeAlert, 3, .production_id = 19),
   [63] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 1),
   [65] = {.entry = {.count = 1, .reusable = true}}, SHIFT(46),
   [67] = {.entry = {.count = 1, .reusable = true}}, SHIFT(27),
-  [69] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2, .production_id = 5),
+  [69] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2, .production_id = 6),
   [71] = {.entry = {.count = 1, .reusable = true}}, SHIFT(23),
-  [73] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 2, .production_id = 7),
-  [75] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 17), SHIFT_REPEAT(22),
-  [78] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 17),
-  [80] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1),
-  [82] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1), SHIFT(12),
+  [73] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalStep, 2, .production_id = 9),
+  [75] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 21), SHIFT_REPEAT(22),
+  [78] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 21),
+  [80] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1, .production_id = 8),
+  [82] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 2, .dynamic_precedence = -1, .production_id = 8), SHIFT(12),
   [85] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 1, .production_id = 1),
   [87] = {.entry = {.count = 1, .reusable = true}}, SHIFT(22),
-  [89] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 2, .production_id = 13),
-  [91] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1),
-  [93] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1), SHIFT(12),
-  [96] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2),
-  [98] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2), SHIFT_REPEAT(12),
-  [101] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 1, .production_id = 2),
-  [103] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 1, .production_id = 2),
-  [105] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 5, .production_id = 12),
-  [107] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 16),
-  [109] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
-  [111] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2, .production_id = 6),
-  [113] = {.entry = {.count = 1, .reusable = true}}, SHIFT(37),
-  [115] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
-  [117] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__cooldownStep, 3, .production_id = 11),
-  [119] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__warmupStep, 3, .production_id = 9),
-  [121] = {.entry = {.count = 1, .reusable = true}}, SHIFT(45),
-  [123] = {.entry = {.count = 1, .reusable = true}}, SHIFT(44),
-  [125] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
-  [127] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 3, .production_id = 8),
+  [89] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 2, .production_id = 17),
+  [91] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1, .production_id = 2),
+  [93] = {.entry = {.count = 2, .reusable = true}}, REDUCE(sym__intervalBlocks, 1, .dynamic_precedence = -1, .production_id = 2), SHIFT(12),
+  [96] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2, .production_id = 12),
+  [98] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2, .production_id = 12), SHIFT_REPEAT(12),
+  [101] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__intervalReps, 1, .production_id = 3),
+  [103] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 1, .production_id = 3),
+  [105] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_intervalBlock, 5, .production_id = 16),
+  [107] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalBlocks_repeat1, 2, .production_id = 11),
+  [109] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__intervalReps_repeat1, 2, .production_id = 20),
+  [111] = {.entry = {.count = 1, .reusable = true}}, SHIFT(4),
+  [113] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 2, .production_id = 7),
+  [115] = {.entry = {.count = 1, .reusable = true}}, SHIFT(37),
+  [117] = {.entry = {.count = 1, .reusable = true}},  ACCEPT_INPUT(),
+  [119] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__cooldownStep, 3, .production_id = 15),
+  [121] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__warmupStep, 3, .production_id = 13),
+  [123] = {.entry = {.count = 1, .reusable = true}}, SHIFT(45),
+  [125] = {.entry = {.count = 1, .reusable = true}}, SHIFT(44),
+  [127] = {.entry = {.count = 1, .reusable = true}}, SHIFT(16),
+  [129] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_workout, 3, .production_id = 10),
 };
 
 #ifdef __cplusplus

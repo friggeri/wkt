@@ -5,7 +5,7 @@ module.exports = grammar({
     workout: ($) =>
       seq(
         optional($._warmupStep),
-        field("intervalBlock", $._intervalBlocks),
+        $._intervalBlocks,
         optional($._cooldownStep)
       ),
 
@@ -15,7 +15,13 @@ module.exports = grammar({
       seq("+", field("cooldown", $.workoutStep), "cooldown"),
 
     _intervalBlocks: ($) =>
-      prec.dynamic(-1, seq($.intervalBlock, repeat(seq("+", $.intervalBlock)))),
+      prec.dynamic(
+        -1,
+        seq(
+          field("intervalBlock", $.intervalBlock),
+          repeat(seq("+", field("intervalBlock", $.intervalBlock)))
+        )
+      ),
 
     intervalBlock: ($) =>
       choice(

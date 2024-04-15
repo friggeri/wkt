@@ -17,12 +17,8 @@
           ]
         },
         {
-          "type": "FIELD",
-          "name": "intervalBlock",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_intervalBlocks"
-          }
+          "type": "SYMBOL",
+          "name": "_intervalBlocks"
         },
         {
           "type": "CHOICE",
@@ -87,8 +83,12 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "SYMBOL",
-            "name": "intervalBlock"
+            "type": "FIELD",
+            "name": "intervalBlock",
+            "content": {
+              "type": "SYMBOL",
+              "name": "intervalBlock"
+            }
           },
           {
             "type": "REPEAT",
@@ -100,8 +100,12 @@
                   "value": "+"
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "intervalBlock"
+                  "type": "FIELD",
+                  "name": "intervalBlock",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "intervalBlock"
+                  }
                 }
               ]
             }
