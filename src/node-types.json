@@ -112,6 +112,11 @@
     }
   },
   {
+    "type": "hours",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "intervalBlock",
     "named": true,
     "fields": {
@@ -175,6 +180,11 @@
   },
   {
     "type": "miles",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "minutes",
     "named": true,
     "fields": {}
   },
@@ -260,6 +270,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "seconds",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "workout",
@@ -381,8 +396,16 @@
     "named": false
   },
   {
+    "type": "hour",
+    "named": false
+  },
+  {
     "type": "hours",
-    "named": true
+    "named": false
+  },
+  {
+    "type": "hr",
+    "named": false
   },
   {
     "type": "kilometer",
@@ -421,8 +444,16 @@
     "named": false
   },
   {
+    "type": "min",
+    "named": false
+  },
+  {
+    "type": "minute",
+    "named": false
+  },
+  {
     "type": "minutes",
-    "named": true
+    "named": false
   },
   {
     "type": "number",
@@ -437,8 +468,16 @@
     "named": true
   },
   {
+    "type": "sec",
+    "named": false
+  },
+  {
+    "type": "second",
+    "named": false
+  },
+  {
     "type": "seconds",
-    "named": true
+    "named": false
   },
   {
     "type": "warmup",

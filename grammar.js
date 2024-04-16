@@ -84,9 +84,9 @@ module.exports = grammar({
 
     _unitDuration: ($) => choice($.seconds, $.minutes, $.hours),
 
-    seconds: ($) => "sec",
-    minutes: ($) => "min",
-    hours: ($) => "hr",
+    seconds: ($) => choice("sec", "seconds", "second"),
+    minutes: ($) => choice("min", "minutes", "minute"),
+    hours: ($) => choice("hr", "hours", "hour"),
 
     number: ($) => /\d+(\.\d+)?/,
   },

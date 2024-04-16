@@ -562,16 +562,55 @@
       ]
     },
     "seconds": {
-      "type": "STRING",
-      "value": "sec"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "sec"
+        },
+        {
+          "type": "STRING",
+          "value": "seconds"
+        },
+        {
+          "type": "STRING",
+          "value": "second"
+        }
+      ]
     },
     "minutes": {
-      "type": "STRING",
-      "value": "min"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "STRING",
+          "value": "minutes"
+        },
+        {
+          "type": "STRING",
+          "value": "minute"
+        }
+      ]
     },
     "hours": {
-      "type": "STRING",
-      "value": "hr"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "hr"
+        },
+        {
+          "type": "STRING",
+          "value": "hours"
+        },
+        {
+          "type": "STRING",
+          "value": "hour"
+        }
+      ]
     },
     "number": {
       "type": "PATTERN",
