@@ -15,6 +15,8 @@
     "access": "public"
   },
   "scripts": {
+    "build": "tree-sitter build -w -o wasm/tree-sitter-wkt.wasm",
+    "prepublishOnly": "npm run build",
     "test": "tree-sitter test",
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip"
