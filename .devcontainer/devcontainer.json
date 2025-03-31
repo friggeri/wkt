@@ -8,7 +8,7 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/rust:1": {},
-    "devwasm.azurecr.io/dev-wasm/dev-wasm-feature/wasmtime-wasi:0.0.4": {}
+    "devwasm.azurecr.io/dev-wasm/dev-wasm-feature/wasmtime-wasi:0.0.16": {}
   },
 
   "customizations": {
